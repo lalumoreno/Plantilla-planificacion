@@ -5,7 +5,8 @@
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Título del proyecto} 
+\titulo{Monitoreo de red de sensores Bluetooth
+en invernaderos} 
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
 \posgrado{Carrera de Especialización en Sistemas Embebidos} 
@@ -16,21 +17,21 @@
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
 % IMPORTANTE: no omitir titulaciones ni tildación en los nombres, también se recomienda escribir los nombres completos (tal cual los tienen en su documento)
-\autor{Título y Nombre del autor}
+\autor{Ing. Laura Andrea Moreno Rodríguez}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Título y Nombre del director}
+\director{Ing. Federico Roux}
 \pertenenciaDirector{pertenencia} 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Pablo Lodetti}
+\empresaCliente{Wentux Tecnoagro}
  
-\fechaINICIO{30 de abril de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
-\fechaFINALPlan{18 de junio de 2023} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
+\fechaINICIO{11 de marzo de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
+\fechaFINALPlan{22 de abril de 2025} 	%Fecha de final de cursada de GdP
+\fechaFINALTrabajo{noviembre 2025}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -59,7 +60,7 @@
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
-%1      & Se completa hasta el punto 5 inclusive                & {día} de {mes} de 202X \\ \hline
+1      & Se completa hasta el punto 5 inclusive                & {16} de {marzo} de 2025 \\ \hline
 %2      & Se completa hasta el punto 9 inclusive
 %		  Se puede agregar algo más \newline
 %		  En distintas líneas \newline
@@ -85,7 +86,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de una caldera industrial}. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con la \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en el desarrollo del protocolo de comunicación basado en Bluetooth Mesh para interconectar los sensores, optimizando el monitoreo y control local de la red. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -105,6 +106,35 @@ Se adjunta a esta acta la planificación inicial.
 
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
+
+\subsection{Contexto y Objetivo}
+Este proyecto surge como una necesidad de la empresa {\empclientename} y ha sido propuesto por {\clientename} dentro del programa de vinculación con empresas de la {\degreename}.
+
+{\empclientename} desarrolla y comercializa diversos dispositivos para la automatización de salas de cultivo. Uno de estos dispositivos es un sensor de suelo diseñado para medir la temperatura y humedad en invernaderos. Actualmente, este sensor utiliza el microcontrolador ESP32-C3 y transmite las mediciones vía Wi-Fi a un servidor local del usuario. Como resultado, cada sensor instalado en el invernadero debe estar dentro del alcance de la red Wi-Fi para funcionar correctamente.
+
+El objetivo principal de este proyecto es aprovechar las capacidades Bluetooth del ESP32-C3 para desarrollar una solución de transmisión de datos basada en una red de sensores Bluetooth Mesh. Esta tecnología permitirá ampliar el rango de comunicación de los sensores, eliminando la necesidad de que cada uno esté dentro de un área específica de cobertura Wi-Fi. Además, se implementará un servidor web local para la configuración y monitoreo de la red, optimizando la gestión y operación del sistema para el usuario final.
+
+
+
+\subsection{Red de sensores Bluetooth Mesh}
+Una red de sensores Bluetooth Mesh es un sistema de comunicación inalámbrica en el que múltiples dispositivos, llamados nodos, se interconectan para formar una red descentralizada y de amplio alcance. A diferencia de las conexiones punto a punto tradicionales, en una red Mesh cada nodo puede retransmitir datos, lo que permite extender la cobertura de comunicación más allá del rango de un solo dispositivo y mejorar la confiabilidad del sistema.
+
+En el contexto de sensores para invernaderos, una red Bluetooth Mesh permite que los datos recopilados por cada sensor sean transmitidos de manera eficiente a través de otros nodos hasta llegar a un punto central, sin necesidad de que todos los dispositivos estén dentro del alcance directo de una única fuente de comunicación, como una red Wi-Fi. Esto optimiza el consumo energético, reduce la infraestructura necesaria y facilita la escalabilidad del sistema.
+
+%Propuesta de valor 
+Diagrama 
+
+%desafios 
+%motivacion e importancia 
+
+utilizado es el ESP32-C3 de Espressif Systems.
+Los datos recolectados por los sensores Bluetooth se envían al módulo central, el cual los
+transmite al servidor mediante el protocolo MQTT para la comunicación cliente-servidor.
+Se busca que el módulo central gestione la comunicación con los diferentes nodos sensores
+del invernadero, permitiendo el monitoreo de variables y el estado de los actuadores
+conectados, así como la ejecución de acciones programadas.
+Asimismo, se desarrollará un servidor web que facilite el control y monitoreo del equipo
+dentro de la red local, integrando a los distintos nodos BLE conectados.
 
 \begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
@@ -145,14 +175,6 @@ Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprend
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-\textbf{Nota importante:} borrar esto y todas las consignas en color rojo antes de entregar este documento). Esto se hace eliminando el par de comandos que forman el bloque consigna, \verb!\begin{consigna}{red}! y \verb!\end{consigna}{red}! del código. 
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos. Si se considera que una persona cumple dos o más roles, entonces \textbf{solo dejarla en el rol más importante}. 
-
-Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente. Si una persona es el Responsable, \textbf{no debe ser colocado también como miembro del equipo}.
-
-
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
@@ -162,9 +184,7 @@ Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 Auspiciante   &                   &              	&        	\\ \hline
 Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
 Equipo        & miembro1 \newline 
 				miembro2          &              	&        	\\ \hline
@@ -173,26 +193,22 @@ Usuario final &                   &              	&        	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los orientadores.
-
 No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
 
 Es deseable listar a continuación las principales características de cada interesado.
  
 Por ejemplo:
 \begin{itemize}
-	\item Orientador: la Dra. Ing. María Gómez es experta en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
+	\item Cliente: 
+	\item Orientador: el... Dra. Ing. María Gómez es experto en la temática y va a ayudar con la definición de los requerimientos y el desarrollo del firmware del embebido.
 	\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
 	\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
 \end{itemize}
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
-
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
+
+Aprovechar las capacidades Bluetooth del microcontrolador ESP32-C3 para desarrollar una solución de transmisión de datos basada en una red de sensores Bluetooth Mesh para los sensores de suelo de {\clientename}. Esta tecnología permitirá ampliar el rango de comunicación de los sensores, eliminando la necesidad de que cada uno esté dentro de un área específica de cobertura Wi-Fi. Además, se implementará un servidor web local para la configuración y monitoreo de la red, optimizando la gestión y operación del sistema para el usuario final.
 
 \begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 

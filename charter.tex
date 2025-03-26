@@ -60,7 +60,7 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                & {19} de {marzo} de 2025 \\ \hline
-2      & Se refina el contexto del proyecto en el punto 1 \newline
+2      & Se ajustan los puntos 1 y 4 con las correcciones de Wentux Tecnoagro \newline
 		 Se completa hasta el punto 9 inclusive               & {28} de {marzo} de 2025 \\ \hline
 %3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
 %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
@@ -114,7 +114,7 @@ La motivación de este proyecto radica en la oportunidad de aplicar conocimiento
 
 Una red de sensores Bluetooth Mesh es un sistema de comunicación inalámbrica en el que múltiples dispositivos (nodos) se interconectan para formar una red descentralizada de amplio alcance. En este tipo de red, cada nodo retransmite los datos recibidos, lo que permite extender la cobertura de comunicación más allá del alcance de un único dispositivo. En el contexto de salas de cultivo, en donde cada sensor o actuador es un nodo de la red, esta arquitectura posibilita la transmisión eficiente de los datos entre los nodos hasta alcanzar un dispositivo central que actua como nodo central de la red. Esto reduce la infraestructura necesaria y facilita la escalabilidad del sistema.
 
-La figura \ref{fig:diagBloquesBleMesh} ilustra el principio de comunicación en la red Bluetooth Mesh a implementar en este proyecto, donde los nodos, que en este caso corresponden a los sensores y actuadores en el invernadero, colaboran para transmitir los datos recopilados de manera eficiente hasta llegar al nodo central. La diferencia entre un nodo y un nodo central radica principalmente en la configuración asignada a cada dispositivo durante la instalación de la red.
+La figura \ref{fig:diagBloquesBleMesh} ilustra el principio de comunicación en la red Bluetooth Mesh a implementar en este proyecto, donde los nodos, que en este caso corresponden a los sensores y actuadores en el invernadero, colaboran para transmitir datos de manera eficiente hasta llegar al nodo central. La diferencia entre un nodo y un nodo central radica principalmente en la configuración asignada a cada dispositivo durante la instalación de la red.
 
 En términos de hardware, todos los nodos están basados en el ESP32-C3, como se muestra en la figura \ref{fig:diagBloquesEsp32}, que representa una versión simplificada de la arquitectura interna de cada dispositivo. La única diferencia funcional entre un nodo y el nodo central es que este último incorporará un servidor web embebido, al que el usuario final podrá acceder para visualizar y gestionar la red en tiempo real. Como resultado, el nodo central es el único que requiere una conexión estable a Wi-Fi, permitiendo el acceso a la interfaz de monitoreo.
 
@@ -172,9 +172,7 @@ Este proyecto incluye:
 \item Implementación de una red de sensores y actuadores Bluetooth Mesh utilizando el microcontrolador ESP32-C3, basada en el SDK de Espressif.
 \item Desarrollo de una biblioteca modular para la comunicación Bluetooth Mesh, permitiendo su fácil integración en los dispositivos del cliente.
 \item Implementación de un nodo central con servidor web local, que actuará como punto de recopilación de datos y permitirá la visualización y configuración de la red en tiempo real.
-\item Capacidad de asignar roles a los nodos (sensor o actuador) desde la interfaz web del nodo central.
-\item Soporte para la integración de nuevos sensores y actuadores dentro de la red sin necesidad de modificar la infraestructura existente.
-\item Simulación de datos en los microcontroladores ESP32-C3 adquiridos para el proyecto, en lugar de utilizar los dispositivos reales de la empresa.
+\item Soporte para la integración de nuevos nodos a la red sin necesidad de modificar la infraestructura existente.
 \item Diseño de una arquitectura adaptable, asegurando que el firmware desarrollado pueda ser integrado posteriormente en los dispositivos reales sin modificaciones estructurales significativas.
 \item Desarrollo de una interfaz web intuitiva para el monitoreo y configuración de la red de sensores, accesible a través del nodo central.
 \item Validación del sistema en condiciones simuladas, asegurando su funcionamiento antes de la integración con los dispositivos del cliente.
@@ -230,81 +228,71 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
+% Que hace
 \begin{enumerate}
 \item Requerimientos Funcionales
 	\begin{enumerate}
-		\item La red de sensores y actuadores debe implementarse utilizando Bluetooth Mesh sobre microcontroladores ESP32-C3.
-		\item Cada nodo de la red debe ser capaz de retransmitir datos para extender la cobertura.
-		\item El nodo central debe recopilar y almacenar la información de todos los sensores.
-		\item El servidor web embebido en el nodo central debe permitir la visualización de los datos en tiempo real.
-		\item La configuración de la red debe ser posible a través de la interfaz web.
-		\item La comunicación entre los nodos debe ser tolerante a fallos, permitiendo la reorganización automática de la red en caso de pérdida de un nodo.
-		\item Los sensores deben poder ser agregados o eliminados dinámicamente de la red.
-	\end{enumerate}
-
-\item Requerimientos de Documentación
-	\begin{enumerate}
-		\item Manual de usuario para la configuración y monitoreo de la red a través de la interfaz web.
-		\item Documentación técnica del firmware desarrollado, incluyendo estructura de código y diagramas de flujo.
-		\item Especificación de los protocolos de comunicación utilizados.
-		\item Instructivo de instalación y despliegue del sistema en los dispositivos de {\empclientename}.
-		\item Registro de pruebas realizadas, con casos de prueba y resultados.
-	\end{enumerate}
-
-\item Requerimientos de Testing
-	\begin{enumerate}
-		\item Validación de la conectividad y estabilidad de la red Bluethooth Mesh con un minomo de cuatro nodos.
-		\item Pruebas de latencia y pérdida de paquetes en diferentes condiciones ambientales.
-%		\item Evaluación del consumo energético de los nodos en diferentes escenarios de uso.
-		\item Simulación de fallos en nodos individuales para verificar la capacidad de recuperación de la red.
-		\item Pruebas de carga en el servidor web para garantizar su rendimiento con múltiples conexiones simultáneas.
+		\item El nodo central debe actuar como coordinador de la red, recopilando datos de los sensores y enviando comandos a los actuadores.
+		\item Cada nodo de la red debe ser capaz de retransmitir datos para extender la cobertura.						\item El nodo central debe registrar logs básicos de actividad para diagnóstico y depuración.
+		\item El nodo central debe desplegar un servidor web local para la configuración y el monitoreo de la red. 
+		\item El sistema debe detectar cuando un nodo se desconecta y reflejar su estado en la interfaz web.
+		\item Si un nodo se desconecta, debe intentar reconectarse automáticamente a la red Bluetooth Mesh.
+		\item El servidor web del nodo central debe ser accesible solo dentro de la red Wi-Fi local.
+		\item (Opcional) Cada nodo debe desplegar una interfaz web local para configurar datos de identificación dentro de la red. 
 	\end{enumerate}
 
 \item Requerimientos de Interfaz
 	\begin{enumerate}
+		\item Desde la interfaz web del nodo central, el usuario debe poder:
+		\subitem Visualizar el estado actual de la red
+		\subitem Agregar o eliminar nodos de la red.
+		\subitem Visualizar los datos transmitidos y recibidos por cada nodo.
+		\subitem Visualizar datos de identificación de cada nodo.
+		\subitem (Opcional) Configurar datos de identificación de cada nodo.
+	
+		\item La interfaz web debe ser intuitiva, con una estructura clara para la configuración y monitoreo de la red.
 		\item La interfaz web debe ser accesible desde dispositivos móviles y de escritorio.
-		\item Debe ofrecer una visualización gráfica de los sensores y sus valores en tiempo real.
-		\item Debe permitir configurar parámetros básicos de la red, como frecuencia de transmisión de datos y nodos activos.
-La interfaz debe ser intuitiva y de fácil navegación para el usuario final.
-		\item Debe contar con autenticación básica para restringir el acceso a la configuración del sistema.
+		\item Debe haber una representación gráfica o en lista del estado de cada nodo (activo/inactivo).
+
+		\item (Opcional) Desde la interfaz web de cada nodo, el usuario debe poder:
+		\subitem Asignar nombres personalizados al nodo.
+		\subitem Establecer el nodo como sensor o actuador.
+		\subitem Visualizar si el nodo está activo o inactivo dentro de la red.
+	\end{enumerate}
+	
+% como debe responder
+\item Requerimientos No Funcionales
+	\begin{enumerate}
+		\item La red de sensores y actuadores debe implementarse utilizando Bluetooth Mesh sobre microcontroladores ESP32-C3.
+		\item Se debe trabajar con microcontroladores ESP32-C3 adquiridos para el proyecto, en lugar de usar los dispositivos comerciales de Wentux Tecnoagro.
+		\item Se debe utilizar el SDK de Espressif para el desarrollo del firmware Bluetooth Mesh.
+		\item El servidor web se debe implementar con tecnologías compatibles con el ESP32-C3 (ej., ESP-IDF, AsyncWebServer).
+		\item El sistema debe soportar la conexión de al menos 5 nodos simultáneamente.
+		\item La implementación debe permitir escalar la red a más de 5 nodos con mínimas modificaciones en el software.
+		\item Cada nodo debe poder enviar y recibir datos del nodo central al menos cada 5 segundos.		
+		\item El tiempo de respuesta del servidor web no debe exceder los 500 ms en condiciones normales de operación.
+		\item La comunicación entre nodos debe utilizar los mecanismos de seguridad estándar del SDK de Espressif para Bluetooth Mesh.
+		\item El firmware de los nodos debe ser modular y reutilizable para futuras implementaciones en el hardware comercial de Wentux Tecnoagro.
+		\item El código fuente debe ser modular y documentado, permitiendo futuras modificaciones e integraciones.
+	\end{enumerate}
+	
+\item Requerimientos de validación
+	\begin{enumerate}
+		\item Se deben realizar pruebas funcionales para verificar la comunicación entre nodos.
+		\item Se debe validar que los nodos se agreguen y configuren correctamente desde la interfaz web.
+		\item Se deben realizar pruebas de estabilidad del sistema con la cantidad máxima de dispositivos soportados.
+		\item Se debe verificar que el tiempo de respuesta del servidor web se mantenga dentro del límite establecido.
+		\item Se debe evaluar la distancia máxima entre nodos antes de perder conectividad.
 	\end{enumerate}
 
-\item Requerimientos de Desempeño
+\item Requerimientos de Documentación
 	\begin{enumerate}
-		\item El sistema debe ser capaz de operar con al menos 4 sensores en simultáneo.
-%		\item La latencia máxima permitida en la transmisión de datos entre un nodo y el nodo central debe ser inferior a Y ms.
-		\item El nodo central debe manejar la concurrencia de múltiples usuarios sin degradación significativa del rendimiento.
-	\end{enumerate}
-
-\item Requerimientos de Seguridad
-	\begin{enumerate}
-%		\item La comunicación entre los nodos debe estar cifrada para evitar accesos no autorizados.
-		\item El servidor web embebido debe contar con mecanismos de autenticación para restringir cambios en la configuración.
-		\item Debe implementarse validación de datos para evitar ataques como inyección de comandos.
-	\end{enumerate}
-
-\item Requerimientos de Hardware y Compatibilidad
-	\begin{enumerate}
-		\item El firmware debe ser compatible con los microcontroladores ESP32-C3.
-		\item La solución debe ser compatible con futuras expansiones de la red sin modificaciones significativas en el código
+		\item Se debe entregar una documentación técnica con:
+			\subitem Descripción de la arquitectura de la red Bluetooth Mesh.
+			\subitem Instrucciones para integrar la biblioteca en futuros dispositivos.
+			\subitem Manual de uso de la interfaz web.
+			\subitem Guía para la instalación y configuración del nodo central.
+			\subitem Documentación sobre las validaciones realizadas.
 	\end{enumerate}
 
 \end{enumerate}

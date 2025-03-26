@@ -19,7 +19,7 @@
 \autor{Ing. Laura Andrea Moreno Rodríguez}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Ing. Federico Roux}
+\director{Esp. Ing. Federico Roux}
 \pertenenciaDirector{Globant} 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{FIUBA}
@@ -60,10 +60,8 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                & {19} de {marzo} de 2025 \\ \hline
-%2      & Se completa hasta el punto 9 inclusive
-%		  Se puede agregar algo más \newline
-%		  En distintas líneas \newline
-%		  Así                                                    & {día} de {mes} de 202X \\ \hline
+2      & Se refina el contexto del proyecto en el punto 1 \newline
+		 Se completa hasta el punto 9 inclusive               & {28} de {marzo} de 2025 \\ \hline
 %3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
 %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
 
@@ -85,7 +83,8 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con la \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en la implementación de un protocolo de comunicación basado en Bluetooth Mesh para interconectar diferentes sensores dentro de un invernadero, así como el desarrollo de un servidor web embebido en el dispositivo central para optimizar el monitoreo y control local de la red. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de {\$ 9600 USD}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
+Por medio de la presente se acuerda con la \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en la implementación 
+de una solución de transmisión de datos basada en Bluetooth Mesh para interconectar diferentes sensores y actuadores dentro de un invernadero, así como el desarrollo de un servidor web embebido en el nodo central para optimizar el monitoreo y control local de la red. El trabajo tendrá un presupuesto preliminar estimado de 600 horas y un costo estimado de {\$ 9600 USD}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública en \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -105,19 +104,19 @@ Se adjunta a esta acta la planificación inicial.
 
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
-Este proyecto surge como una necesidad de la empresa {\empclientename}, quien lo ha propuesto dentro del programa de vinculación con empresas de la {\degreename}. La empresa se dedica a la fabricación y comercialización de diversos dispositivos para la automatización de salas de cultivo, siendo los sensores de temperatura, humedad y Co2, algunos de sus productos más destacados. Actualmente, los sensores fabricados por {\empclientename} utilizan el microcontrolador ESP32-C3 como procesador central y transmiten los datos de medición a través de la conexión Wi-Fi del usuario final. Sin embargo, este enfoque limita la instalación de los sensores en las salas de cultivo, ya que todos deben estar dentro del alcance de la red Wi-Fi para funcionar correctamente.
+Este proyecto surge como una necesidad de la empresa {\empclientename}, quien lo ha propuesto dentro del programa de vinculación con empresas de la {\degreename}. La empresa se dedica a la fabricación y comercialización de diversos dispositivos para la automatización de salas de cultivo, siendo los sensores de temperatura, humedad y Co2, algunos de sus productos más destacados. Actualmente, los sensores y actuadores fabricados por {\empclientename} se conectan a un dispositivo central mediante un enlace cableado, el cual gestiona la recopilación de datos y los transmite a través de la red Wi-Fi del usuario final. Sin embargo, este enfoque presenta limitaciones en escalabilidad y flexibilidad, ya que el dispositivo central admite un máximo de tres sensores y seis actuadores, restringiendo la expansión del sistema y la facilidad de instalación.
 
-El objetivo principal de este proyecto es aprovechar las capacidades Bluetooth del ESP32-C3 para implementar una solución de transmisión de datos mediante una red de sensores Bluetooth Mesh. Esta tecnología permitirá superar la limitación de cobertura Wi-Fi, al proporcionar una red descentralizada donde cada sensor puede transmitir datos a través de otros nodos, extendiendo el alcance y mejorando la confiabilidad del sistema. Además, se desarrollará un servidor web embebido en el nodo central que facilitará la configuración y monitoreo de la red, optimizando la gestión y operación del sistema para el usuario final.
+El objetivo principal de este proyecto es implementar una solución de transmisión de datos basada en Bluetooth Mesh para reemplazar la conexión cableada entre los sensores, actuadores y el dispositivo central. Para ello, se aprovecharán las capacidades Bluetooth del microcontrolador ESP32-C3, el cual actúa como unidad de procesamiento central en todos los dispositivos fabricados por {\empclientename}. Esta tecnología permitirá ampliar la capacidad del sistema al facilitar la incorporación de sensores y actuadores adicionales sin necesidad de cableado, simplificando la instalación y mejorando la escalabilidad. Además, se desarrollará un servidor web embebido en el dispositivo central, accesible a través de la red Wi-Fi local, que permitirá la configuración y supervisión de la red en tiempo real. Esto proporcionará una interfaz intuitiva para la gestión del sistema, mejorando la eficiencia operativa y la experiencia del usuario final.
 
 Es importante señalar que el desarrollo y las pruebas del sistema no se llevarán a cabo con los dispositivos comerciales de {\empclientename}. En su lugar, se emplearán ESP32-C3 adquiridos específicamente para este proyecto, ya que son suficientes para desarrollar y validar la prueba de concepto. El enfoque principal se centrará en el diseño e implementación de la comunicación Bluetooth Mesh y el servidor web local, dejando la integración del código con los dispositivos reales para una fase posterior a cargo de {\empclientename}. Esto significa, que no se requiere acceso al hardware o software de la empresa, pero sí acompañamiento e información oportuna para poder simular los datos que sean necesarios y crear un entorno de desarrollo adecuado. Por otra parte, el cliente tendrá acceso completo al software desarrollado y la licencia para integrarlo en sus dispositivos desde el inicio del proyecto.
 
-La motivación de este proyecto radica en la oportunidad de aplicar conocimientos avanzados en el desarrollo de firmware y comunicación inalámbrica, con un enfoque en tecnologías ampliamente utilizadas en el Internet de las Cosas (IoT), como lo son el microcontrolador ESP32-C3 y la red Bluetooth Mesh. Además, el proyecto contribuye al crecimiento de {\empclientename}, proporcionando una solución que agrega valor y mejora la competitividad de sus productos en el mercado. 
+La motivación de este proyecto radica en la oportunidad de aplicar conocimientos avanzados en el desarrollo de firmware y comunicación inalámbrica, con un enfoque en tecnologías ampliamente utilizadas en el Internet de las Cosas (IoT), como lo son el microcontrolador ESP32-C3 y la red Bluetooth Mesh. Además, el proyecto contribuye al crecimiento de la microempresa {\empclientename}, proporcionando una solución que agrega valor y mejora la competitividad de sus productos en el mercado. 
 
-Una red de sensores Bluetooth Mesh es un sistema de comunicación inalámbrica en el que múltiples dispositivos (nodos) se interconectan para formar una red descentralizada de amplio alcance. En este tipo de red, cada nodo retransmite los datos recibidos, lo que permite extender la cobertura de comunicación más allá del alcance de un único dispositivo. En el contexto de sensores para invernaderos, en donde cada sensor es un nodo de la red, esta arquitectura posibilita la transmisión eficiente de los datos entre los nodos hasta alcanzar un nodo central. Esto mejora el consumo energético, reduce la infraestructura necesaria y facilita la escalabilidad del sistema.
+Una red de sensores Bluetooth Mesh es un sistema de comunicación inalámbrica en el que múltiples dispositivos (nodos) se interconectan para formar una red descentralizada de amplio alcance. En este tipo de red, cada nodo retransmite los datos recibidos, lo que permite extender la cobertura de comunicación más allá del alcance de un único dispositivo. En el contexto de salas de cultivo, en donde cada sensor o actuador es un nodo de la red, esta arquitectura posibilita la transmisión eficiente de los datos entre los nodos hasta alcanzar un dispositivo central que actua como nodo central de la red. Esto reduce la infraestructura necesaria y facilita la escalabilidad del sistema.
 
-La figura \ref{fig:diagBloquesBleMesh} ilustra el principio de comunicación en una red Bluetooth Mesh a implementar en este proyecto, donde los nodos, que en este caso corresponden a los sensores en el invernadero, colaboran para transmitir los datos recopilados de manera eficiente hasta llegar al nodo central. La diferencia entre un nodo y un nodo central radica principalmente en la configuración asignada a cada dispositivo durante la instalación de la red.
+La figura \ref{fig:diagBloquesBleMesh} ilustra el principio de comunicación en la red Bluetooth Mesh a implementar en este proyecto, donde los nodos, que en este caso corresponden a los sensores y actuadores en el invernadero, colaboran para transmitir los datos recopilados de manera eficiente hasta llegar al nodo central. La diferencia entre un nodo y un nodo central radica principalmente en la configuración asignada a cada dispositivo durante la instalación de la red.
 
-En términos de hardware, todos los nodos están basados en el ESP32-C3, como se muestra en la figura \ref{fig:diagBloquesEsp32}, que representa una versión simplificada de la arquitectura interna de cada sensor. La única diferencia funcional entre un nodo y el nodo central es que este último incorporará un servidor web embebido, al que el usuario final podrá acceder para visualizar los datos recopilados por la red. Como resultado, el nodo central es el único que requiere una conexión estable a Wi-Fi, permitiendo el acceso a la interfaz de monitoreo desde cualquier dispositivo conectado a la misma red, como una computadora o un teléfono inteligente.
+En términos de hardware, todos los nodos están basados en el ESP32-C3, como se muestra en la figura \ref{fig:diagBloquesEsp32}, que representa una versión simplificada de la arquitectura interna de cada dispositivo. La única diferencia funcional entre un nodo y el nodo central es que este último incorporará un servidor web embebido, al que el usuario final podrá acceder para visualizar y gestionar la red en tiempo real. Como resultado, el nodo central es el único que requiere una conexión estable a Wi-Fi, permitiendo el acceso a la interfaz de monitoreo.
 
 \begin{figure}[htpb]
 \centering 
@@ -133,9 +132,9 @@ En términos de hardware, todos los nodos están basados en el ESP32-C3, como se
 \label{fig:diagBloquesEsp32}
 \end{figure}
 
-La implementación de la red Bluetooth Mesh se basará en el SDK proporcionado por Espressif, fabricante del microcontrolador ESP32-C3, el cual ya incluye los protocolos necesarios para la provisión, enrutamiento y gestión de los nodos. No obstante, el enfoque de este trabajo irá más allá de la implementación básica, ya que se personalizará la solución para cumplir con los requisitos específicos del cliente. Se desarrollará una biblioteca modular, que facilitará la integración de la red Mesh en los sensores de {\empclientename}, y un servidor web local, funcionalidad que no está contemplada en la solución estándar de Espressif. Este servidor permitirá la gestión de la red de sensores en tiempo real a través de una interfaz web intuitiva, optimizando la experiencia del usuario y brindando un mayor control sobre el sistema.
+La implementación de la red Bluetooth Mesh se basará en el SDK proporcionado por Espressif, fabricante del microcontrolador ESP32-C3, el cual ya incluye los protocolos necesarios para la provisión, enrutamiento y gestión de los nodos. No obstante, el enfoque de este trabajo irá más allá de la implementación básica, ya que se personalizará la solución para cumplir con los requisitos específicos del cliente.
 
-El desarrollo de este proyecto presenta varios desafíos, especialmente en la gestión eficiente de la comunicación entre nodos, asegurando una transmisión de datos estable en un entorno propenso a interferencias. Además, es fundamental optimizar el consumo energético de los dispositivos, ya que los sensores deben operar de manera eficiente sin afectar su autonomía. Otro reto importante será la integración del protocolo de comunicación con el servidor web local, garantizando que la configuración y monitoreo de la red sean intuitivos para el usuario final. Finalmente, el código deberá ser modular y adaptable para que {\empclientename pueda integrarlo en sus dispositivos reales sin modificaciones estructurales significativas, lo que requerirá una arquitectura bien diseñada y documentada para facilitar futuras expansiones.
+El desarrollo de este proyecto presenta varios desafíos, especialmente en la gestión eficiente de la comunicación entre nodos, asegurando una transmisión de datos estable en un entorno propenso a interferencias. Otro reto importante será la integración del protocolo de comunicación con el servidor web local, garantizando que la configuración y monitoreo de la red sean intuitivos para el usuario final. Finalmente, el código deberá ser modular y adaptable para que {\empclientename} pueda integrarlo en sus dispositivos reales sin modificaciones estructurales significativas, lo que requerirá una arquitectura bien diseñada y documentada para facilitar futuras expansiones.
 
 
 \section{2. Identificación y análisis de los interesados}
@@ -162,7 +161,7 @@ Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-El propósito de este proyecto es diseñar e implementar una red de comunicación basada en Bluetooth Mesh para la interconexión de los sensores de {\empclientename} en invernaderos. Esta solución eliminará la dependencia de la cobertura Wi-Fi, ampliará el alcance de transmisión de datos y brindará mayor flexibilidad en la instalación de los sensores. Adicionalmente, se desarrollará un servidor web local en el nodo central, permitiendo la configuración y supervisión de la red, lo que optimizará la eficiencia y facilitará su uso para el cliente final.
+El propósito de este proyecto es diseñar e implementar una red de comunicación basada en Bluetooth Mesh para reemplazar la conexión cableada entre los sensores, actuadores y el dispositivo central de {\empclientename} en invernaderos. Esta solución permitirá ampliar la capacidad del sistema, eliminando las restricciones de cableado y facilitando la integración de nuevos dispositivos. Además, se desarrollará un servidor web local en el nodo central, que permitirá la configuración y supervisión de la red en tiempo real, mejorando la escalabilidad, eficiencia y facilidad de uso del sistema para el cliente final.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
@@ -170,14 +169,16 @@ El propósito de este proyecto es diseñar e implementar una red de comunicació
 Este proyecto incluye: 
 
 \begin{itemize}
-\item Implementación de una red de sensores Bluetooth Mesh utilizando el microcontrolador ESP32-C3, basada en el SDK de Espressif.
+\item Implementación de una red de sensores y actuadores Bluetooth Mesh utilizando el microcontrolador ESP32-C3, basada en el SDK de Espressif.
 \item Desarrollo de una biblioteca modular para la comunicación Bluetooth Mesh, permitiendo su fácil integración en los dispositivos del cliente.
-\item Implementación de un nodo central con servidor web local, que actuará como punto de recopilación de datos y permitirá la visualización y configuración de la red de sensores.
-\item Simulación de datos de sensores en los microcontroladores ESP32-C3 adquiridos para el proyecto, en lugar de utilizar los sensores reales de la empresa.
-\item Optimización del consumo energético de los nodos sensores para mejorar su autonomía dentro de la red.
-\item Diseño de una arquitectura adaptable, asegurando que el firmware desarrollado pueda ser integrado posteriormente en los sensores reales sin modificaciones estructurales significativas.
+\item Implementación de un nodo central con servidor web local, que actuará como punto de recopilación de datos y permitirá la visualización y configuración de la red en tiempo real.
+\item Capacidad de asignar roles a los nodos (sensor o actuador) desde la interfaz web del nodo central.
+\item Soporte para la integración de nuevos sensores y actuadores dentro de la red sin necesidad de modificar la infraestructura existente.
+\item Simulación de datos en los microcontroladores ESP32-C3 adquiridos para el proyecto, en lugar de utilizar los dispositivos reales de la empresa.
+\item Diseño de una arquitectura adaptable, asegurando que el firmware desarrollado pueda ser integrado posteriormente en los dispositivos reales sin modificaciones estructurales significativas.
 \item Desarrollo de una interfaz web intuitiva para el monitoreo y configuración de la red de sensores, accesible a través del nodo central.
 \item Validación del sistema en condiciones simuladas, asegurando su funcionamiento antes de la integración con los dispositivos del cliente.
+\item Escalabilidad del sistema, asegurando que la solución pueda soportar un número creciente de nodos sin afectar el rendimiento.
 \item Documentación técnica del proyecto, incluyendo la descripción de la arquitectura, instrucciones de integración y uso de la biblioteca y servidor web.
 
 \end{itemize}
@@ -187,17 +188,16 @@ Este proyecto incluye:
 Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 
 \begin{itemize}
-\item Uso de los sensores reales de la empresa: se trabajará con microcontroladores ESP32-C3 adquiridos para el proyecto, simulando los datos de medición en lugar de utilizar los sensores comerciales de {\empclientename}.
-\item Desarrollo de hardware personalizado: el proyecto no incluye el diseño o modificación del hardware de los sensores actuales de la empresa, sino únicamente el desarrollo del software.
-\item Integración final con los dispositivos comerciales: la implementación en los sensores reales será responsabilidad del cliente, quien podrá integrar la biblioteca desarrollada.
+\item Uso de los dispositivos reales de la empresa: se trabajará con microcontroladores ESP32-C3 adquiridos para el proyecto, simulando los datos de medición en lugar de utilizar los dispositivos comerciales de {\empclientename}.
+\item Desarrollo de hardware personalizado: el proyecto no incluye el diseño o modificación del hardware de los dispositivos actuales de la empresa, sino únicamente el desarrollo del software.
+\item Integración final con los dispositivos comerciales: la implementación en los dispositivos reales será responsabilidad del cliente, quien podrá integrar la biblioteca desarrollada.
 \item Soporte para otras tecnologías de comunicación: se trabajará exclusivamente con Bluetooth Mesh y Wi-Fi en el nodo central, sin incluir otros protocolos como LoRa, Zigbee o LTE.
-\item Acceso a software privativo de la empresa: no se requerirá acceso al firmware actual de los sensores comerciales de {\empclientename}.
+\item Acceso a software privativo de la empresa: no se requerirá acceso al firmware actual de los dispositivos comerciales de {\empclientename}.
 \item Implementación de seguridad avanzada: la seguridad de la red Bluetooth Mesh se manejará con las características estándar del SDK de Espressif, sin incluir desarrollos adicionales en cifrado o autenticación avanzada.
 \item Almacenamiento en la nube o acceso remoto: el servidor web será local y accesible solo dentro de la red Wi-Fi donde esté conectado el nodo central. No se incluirá conectividad con servicios en la nube ni acceso remoto externo.
 \item Soporte para aplicaciones móviles: la visualización y configuración se realizará a través de la interfaz web del nodo central, sin el desarrollo de una aplicación móvil dedicada.
 \item Mantenimiento o soporte post-proyecto: no se incluye una fase de soporte o mantenimiento continuo una vez entregado el código y la documentación.
-\item Pruebas de alcance, latencia y consumo energético en diferentes escenarios de implementación.
-\item Evaluación del rendimiento en un entorno de invernadero real.
+\item Validación en entornos reales: no se realizarán pruebas de alcance, latencia o consumo energético en un invernadero real; el sistema será validado en condiciones simuladas.
 \end{itemize}
 
 \section{5. Supuestos del proyecto}
@@ -213,11 +213,11 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 \subitem Se dispone de al menos 4 microcontroladores ESP32-C3 para el desarrollo y pruebas del sistema.
 \subitem Se cuenta con acceso a herramientas de desarrollo adecuadas, incluyendo computadoras, compiladores, depuradores y hardware de prueba.
 \subitem Se dispone de un entorno adecuado para realizar pruebas de conectividad Bluetooth Mesh en condiciones similares a un invernadero.
-\subitem Se asume que {\empclientename} proporcionará la información técnica necesaria sobre sus sensores y sus requisitos específicos de integración.
+\subitem Se asume que {\empclientename} proporcionará la información técnica necesaria sobre sus dispositivos y sus requisitos específicos de integración.
 
 \item Factibilidad técnica
 \subitem El SDK de Espressif para Bluetooth Mesh funciona correctamente y cumple con las necesidades del proyecto sin requerir modificaciones profundas.
-\subitem La red Bluetooth Mesh tendrá un rendimiento adecuado para transmitir los datos de los sensores dentro de un invernadero típico, sin interferencias significativas.
+\subitem La red Bluetooth Mesh tendrá un rendimiento adecuado para transmitir los datos de los sensores y actuadores dentro de un invernadero típico, sin interferencias significativas.
 \subitem La implementación del servidor web en el nodo central del sistema será viable y permitirá la visualización y gestión de la red en tiempo real.
 \subitem La integración de la biblioteca desarrollada con los sensores de {\empclientename} podrá realizarse sin cambios estructurales en su firmware actual.
 
@@ -233,24 +233,6 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 \begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
 
-\begin{enumerate}
-	\item Requerimientos funcionales:
-		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
-		\end{enumerate}
-	\item Requerimientos de documentación:
-		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
-		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
-\end{enumerate}
-
 Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
 
 Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
@@ -265,6 +247,68 @@ Y al escribirlos seguir las siguientes reglas:
 \end{itemize}
 
 \end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+\begin{enumerate}
+\item Requerimientos Funcionales
+	\begin{enumerate}
+		\item La red de sensores y actuadores debe implementarse utilizando Bluetooth Mesh sobre microcontroladores ESP32-C3.
+		\item Cada nodo de la red debe ser capaz de retransmitir datos para extender la cobertura.
+		\item El nodo central debe recopilar y almacenar la información de todos los sensores.
+		\item El servidor web embebido en el nodo central debe permitir la visualización de los datos en tiempo real.
+		\item La configuración de la red debe ser posible a través de la interfaz web.
+		\item La comunicación entre los nodos debe ser tolerante a fallos, permitiendo la reorganización automática de la red en caso de pérdida de un nodo.
+		\item Los sensores deben poder ser agregados o eliminados dinámicamente de la red.
+	\end{enumerate}
+
+\item Requerimientos de Documentación
+	\begin{enumerate}
+		\item Manual de usuario para la configuración y monitoreo de la red a través de la interfaz web.
+		\item Documentación técnica del firmware desarrollado, incluyendo estructura de código y diagramas de flujo.
+		\item Especificación de los protocolos de comunicación utilizados.
+		\item Instructivo de instalación y despliegue del sistema en los dispositivos de {\empclientename}.
+		\item Registro de pruebas realizadas, con casos de prueba y resultados.
+	\end{enumerate}
+
+\item Requerimientos de Testing
+	\begin{enumerate}
+		\item Validación de la conectividad y estabilidad de la red Bluethooth Mesh con un minomo de cuatro nodos.
+		\item Pruebas de latencia y pérdida de paquetes en diferentes condiciones ambientales.
+%		\item Evaluación del consumo energético de los nodos en diferentes escenarios de uso.
+		\item Simulación de fallos en nodos individuales para verificar la capacidad de recuperación de la red.
+		\item Pruebas de carga en el servidor web para garantizar su rendimiento con múltiples conexiones simultáneas.
+	\end{enumerate}
+
+\item Requerimientos de Interfaz
+	\begin{enumerate}
+		\item La interfaz web debe ser accesible desde dispositivos móviles y de escritorio.
+		\item Debe ofrecer una visualización gráfica de los sensores y sus valores en tiempo real.
+		\item Debe permitir configurar parámetros básicos de la red, como frecuencia de transmisión de datos y nodos activos.
+La interfaz debe ser intuitiva y de fácil navegación para el usuario final.
+		\item Debe contar con autenticación básica para restringir el acceso a la configuración del sistema.
+	\end{enumerate}
+
+\item Requerimientos de Desempeño
+	\begin{enumerate}
+		\item El sistema debe ser capaz de operar con al menos 4 sensores en simultáneo.
+%		\item La latencia máxima permitida en la transmisión de datos entre un nodo y el nodo central debe ser inferior a Y ms.
+		\item El nodo central debe manejar la concurrencia de múltiples usuarios sin degradación significativa del rendimiento.
+	\end{enumerate}
+
+\item Requerimientos de Seguridad
+	\begin{enumerate}
+%		\item La comunicación entre los nodos debe estar cifrada para evitar accesos no autorizados.
+		\item El servidor web embebido debe contar con mecanismos de autenticación para restringir cambios en la configuración.
+		\item Debe implementarse validación de datos para evitar ataques como inyección de comandos.
+	\end{enumerate}
+
+\item Requerimientos de Hardware y Compatibilidad
+	\begin{enumerate}
+		\item El firmware debe ser compatible con los microcontroladores ESP32-C3.
+		\item La solución debe ser compatible con futuras expansiones de la red sin modificaciones significativas en el código
+	\end{enumerate}
+
+\end{enumerate}
+
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}

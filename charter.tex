@@ -60,8 +60,8 @@
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 5 inclusive                & {19} de {marzo} de 2025 \\ \hline
-2      & Se ajustan los puntos 1 y 4 con las correcciones de Wentux Tecnoagro \newline
-		 Se completa hasta el punto 9 inclusive               & {28} de {marzo} de 2025 \\ \hline
+2      & Se ajustan los puntos 1, 3 y 4 con las correcciones de Wentux Tecnoagro. \newline
+		 Se completa hasta el punto 9 inclusive               & {26} de {marzo} de 2025 \\ \hline
 %3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
 %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
 
@@ -172,7 +172,6 @@ Este proyecto incluye:
 \item Implementación de una red de sensores y actuadores Bluetooth Mesh utilizando el microcontrolador ESP32-C3, basada en el SDK de Espressif.
 \item Desarrollo de una biblioteca modular para la comunicación Bluetooth Mesh, permitiendo su fácil integración en los dispositivos del cliente.
 \item Implementación de un nodo central con servidor web local, que actuará como punto de recopilación de datos y permitirá la visualización y configuración de la red en tiempo real.
-\item Soporte para la integración de nuevos nodos a la red sin necesidad de modificar la infraestructura existente.
 \item Diseño de una arquitectura adaptable, asegurando que el firmware desarrollado pueda ser integrado posteriormente en los dispositivos reales sin modificaciones estructurales significativas.
 \item Desarrollo de una interfaz web intuitiva para el monitoreo y configuración de la red de sensores, accesible a través del nodo central.
 \item Validación del sistema en condiciones simuladas, asegurando su funcionamiento antes de la integración con los dispositivos del cliente.
@@ -230,18 +229,19 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 
 % Que hace
 \begin{enumerate}
-\item Requerimientos Funcionales
+\item Requerimientos funcionales
 	\begin{enumerate}
-		\item El nodo central debe actuar como coordinador de la red, recopilando datos de los sensores y enviando comandos a los actuadores.
-		\item Cada nodo de la red debe ser capaz de retransmitir datos para extender la cobertura.						\item El nodo central debe registrar logs básicos de actividad para diagnóstico y depuración.
-		\item El nodo central debe desplegar un servidor web local para la configuración y el monitoreo de la red. 
+		\item El nodo central debe actuar como coordinador de la red Bluetooth Mesh, recopilando datos de los sensores y enviando comandos a los actuadores.
+		\item Cada nodo de la red debe ser capaz de retransmitir datos para extender la cobertura.
+		\item El nodo central debe registrar logs básicos de actividad para diagnóstico y depuración.
+		\item El nodo central debe desplegar un servidor web local para la configuración y el monitoreo de la red.
 		\item El sistema debe detectar cuando un nodo se desconecta y reflejar su estado en la interfaz web.
-		\item Si un nodo se desconecta, debe intentar reconectarse automáticamente a la red Bluetooth Mesh.
+		\item Si un nodo se desconecta, debe intentar reconectarse automáticamente a la red.
 		\item El servidor web del nodo central debe ser accesible solo dentro de la red Wi-Fi local.
 		\item (Opcional) Cada nodo debe desplegar una interfaz web local para configurar datos de identificación dentro de la red. 
 	\end{enumerate}
 
-\item Requerimientos de Interfaz
+\item Requerimientos de interfaz
 	\begin{enumerate}
 		\item Desde la interfaz web del nodo central, el usuario debe poder:
 		\subitem Visualizar el estado actual de la red
@@ -249,7 +249,6 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 		\subitem Visualizar los datos transmitidos y recibidos por cada nodo.
 		\subitem Visualizar datos de identificación de cada nodo.
 		\subitem (Opcional) Configurar datos de identificación de cada nodo.
-	
 		\item La interfaz web debe ser intuitiva, con una estructura clara para la configuración y monitoreo de la red.
 		\item La interfaz web debe ser accesible desde dispositivos móviles y de escritorio.
 		\item Debe haber una representación gráfica o en lista del estado de cada nodo (activo/inactivo).
@@ -260,8 +259,7 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 		\subitem Visualizar si el nodo está activo o inactivo dentro de la red.
 	\end{enumerate}
 	
-% como debe responder
-\item Requerimientos No Funcionales
+\item Requerimientos no funcionales
 	\begin{enumerate}
 		\item La red de sensores y actuadores debe implementarse utilizando Bluetooth Mesh sobre microcontroladores ESP32-C3.
 		\item Se debe trabajar con microcontroladores ESP32-C3 adquiridos para el proyecto, en lugar de usar los dispositivos comerciales de Wentux Tecnoagro.
@@ -280,18 +278,18 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 	\begin{enumerate}
 		\item Se deben realizar pruebas funcionales para verificar la comunicación entre nodos.
 		\item Se debe validar que los nodos se agreguen y configuren correctamente desde la interfaz web.
-		\item Se deben realizar pruebas de estabilidad del sistema con la cantidad máxima de dispositivos soportados.
+		\item Se deben realizar pruebas de estabilidad del sistema con el número máximo de dispositivos soportados.
 		\item Se debe verificar que el tiempo de respuesta del servidor web se mantenga dentro del límite establecido.
 		\item Se debe evaluar la distancia máxima entre nodos antes de perder conectividad.
 	\end{enumerate}
 
-\item Requerimientos de Documentación
+\item Requerimientos de documentación
 	\begin{enumerate}
 		\item Se debe entregar una documentación técnica con:
 			\subitem Descripción de la arquitectura de la red Bluetooth Mesh.
 			\subitem Instrucciones para integrar la biblioteca en futuros dispositivos.
 			\subitem Manual de uso de la interfaz web.
-			\subitem Guía para la instalación y configuración del nodo central.
+			\subitem Guía de instalación y configuración del nodo central.
 			\subitem Documentación sobre las validaciones realizadas.
 	\end{enumerate}
 
@@ -301,104 +299,162 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+Para las siguientes historias de usuario, se identifican los siguientes roles principales:
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
+\begin{itemize}
+	\item Administrador: es {\empclientename} como dueño y administrador del sistema. Tiene acceso a la configuración avanzada del sistema, incluyendo la gestión de nodos y ajustes de la red Bluetooth Mesh.
+	\item Usuario: es el usuario final al que {\empclientename} ofrecerá su solución. Interactúa con el sistema a través de la interfaz web del nodo central para monitorear el estado de la red y visualizar datos de los sensores y actuadores.
+	\item Desarrollador: es la {\authorname} como encargada de implementar el sistema, asegurando que el firmware, la interfaz web y la comunicación entre nodos funcionen correctamente.
+\end{itemize}
 
-El formato propuesto es: 
+Las historias de usuario se agrupan a continuación por funcionalidad y se han estimado con una puntuación basada en la relevancia, dificultad e incertidumbre de cada una. Cada criterio recibe un valor entre 1 y 3, y la puntuación total de la historia corresponde a la suma de estos valores. El puntaje mínimo es 1 y el máximo es 9, reflejando el esfuerzo relativo requerido para su implementación.
+
 \begin{enumerate}
-\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
+\item Red Bluetooth Mesh y nodo central
+\begin{enumerate}
+	\item Como administrador quiero que el nodo central actúe como coordinador de la red para recopilar datos de los sensores y enviar comandos a los actuadores. \textit{Story points}: 9 (relevancia: 3, dificultad: 3, incertidumbre: 3)
 
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+	\item Como administrador quiero que cada nodo pueda retransmitir datos para extender la cobertura de la red. \textit{Story points}: 7 (relevancia: 2, dificultad: 3, incertidumbre: 2)
+
+	\item Como administrador quiero que el sistema detecte cuando un nodo se desconecta para reflejar su estado en la interfaz web. \textit{Story points}: 5 (relevancia: 2, dificultad: 2, incertidumbre: 1)
+
+	\item Como administrador quiero que cada nodo intente reconectarse automáticamente si se desconecta de la red para mantener la estabilidad del sistema. \textit{Story points}: 6 (relevancia: 2, dificultad: 2, incertidumbre: 2)
+
+	\item Como administrador quiero que el nodo central registre logs básicos de actividad para diagnóstico y depuración del sistema. \textit{Story points}: 3 (relevancia: 1, dificultad: 1, incertidumbre: 1)
+
+	\item Como administrador quiero que el nodo central tenga un servidor web local para configurar y monitorear la red. \textit{Story points}: 9 (relevancia: 3, dificultad: 3, incertidumbre: 3)
+
+	\item Como administrador quiero que cada nodo pueda enviar y recibir datos del nodo central al menos cada 5 segundos para asegurar una actualización constante de la información. \textit{Story points}: 5 (relevancia: 2, dificultad: 2, incertidumbre: 1)
+
+	\item Como administrador quiero que el tiempo de respuesta del servidor web no supere los 500 ms para garantizar una experiencia fluida. \textit{Story points}: 5 (relevancia: 2, dificultad: 2, incertidumbre: 1)
+
+	\item Como desarrollador quiero que el firmware sea modular y reutilizable para facilitar futuras implementaciones en hardware comercial. \textit{Story points}: 5 (relevancia: 1, dificultad: 3, incertidumbre: 1)
 \end{enumerate}
-\end{consigna}
+
+
+\item Interfaz web del nodo central
+\begin{enumerate}
+	\item Como usuario quiero ver el estado actual de la red en la interfaz web para monitorear su funcionamiento. \textit{Story points}: 9 (relevancia: 3, dificultad: 3, incertidumbre: 3)
+
+	\item Como usuario quiero visualizar una lista o representación gráfica del estado de cada nodo (activo/inactivo) para tener una visión clara de la red. \textit{Story points}: 9 (relevancia: 3, dificultad: 3, incertidumbre: 3)
+
+	\item Como usuario quiero agregar nodos a la red desde la interfaz web para expandir el sistema. \textit{Story points}: 8 (relevancia: 2, dificultad: 3, incertidumbre: 3)
+
+	\item Como usuario quiero eliminar nodos de la red desde la interfaz web para reorganizar el sistema según sea necesario. \textit{Story points}: 8 (relevancia: 2, dificultad: 3, incertidumbre: 3)
+
+	\item Como usuario quiero visualizar los datos transmitidos y recibidos por cada nodo para monitorear su actividad. \textit{Story points}: 5 (relevancia: 1, dificultad: 2, incertidumbre: 2)
+
+	\item Como usuario quiero visualizar los datos de identificación de cada nodo para reconocerlos fácilmente en la red. \textit{Story points}: 5 (relevancia: 1, dificultad: 2, incertidumbre: 2)
+
+	\item (Opcional) Como usuario quiero configurar los datos de identificación de cada nodo para asignar nombres personalizados y roles dentro de la red. \textit{Story points}: 5 (relevancia: 0, dificultad: 3, incertidumbre: 2)
+
+	\item Como usuario quiero que la interfaz web sea intuitiva para configurar y monitorear la red de manera sencilla. \textit{Story points}: 6 (relevancia: 2, dificultad: 2, incertidumbre: 2)
+
+\end{enumerate}
+
+\item (Opcional) Interfaz web de cada nodo
+\begin{enumerate}
+	\item Como usuario quiero que cada nodo tenga una interfaz web local para configurar sus datos de identificación dentro de la red. \textit{Story points}: 4 (relevancia: 0, dificultad: 2, incertidumbre: 2)
+
+	\item Como usuario quiero asignar nombres personalizados a los nodos desde su interfaz web para identificarlos fácilmente. \textit{Story points}: 2 (relevancia: 0, dificultad: 1, incertidumbre: 1)
+
+	\item Como usuario quiero establecer si un nodo es sensor o actuador para definir su función dentro de la red. \textit{Story points}: 3 (relevancia: 0, dificultad: 1, incertidumbre: 2)
+
+	\item Como usuario quiero visualizar si un nodo está activo o inactivo en la red desde su interfaz web para asegurar su correcto funcionamiento. \textit{Story points}: 2 (relevancia: 0, dificultad: 1, incertidumbre: 1)
+
+\end{enumerate}
+
+\item Documentación 
+\begin{enumerate}
+	\item Como administrador quiero recibir documentación técnica del sistema para comprender la arquitectura y el firmware desarrollado. \textit{Story points}: 3 (relevancia: 1, dificultad: 1, incertidumbre: 1)
+
+	\item Como administrador quiero recibir instrucciones claras para integrar la biblioteca en futuros dispositivos. \textit{Story points}: 3 (relevancia: 1, dificultad: 1, incertidumbre: 1)
+
+	\item Como usuario quiero un manual de uso de la interfaz web para configurar y monitorear la red correctamente. \textit{Story points}: 3 (relevancia: 1, dificultad: 1, incertidumbre: 1)
+
+	\item Como administrador quiero recibir documentación sobre las validaciones realizadas para asegurar la confiabilidad del sistema. \textit{Story points}: 3 (relevancia: 1, dificultad: 1, incertidumbre: 1)
+
+\end{enumerate}
+
+\end{enumerate}
+
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-%Los siguientes son los entregables de este proyecto: 
-%\begin{itemize}
-%	\item Diseño e Implementación del Protocolo de Comunicación Bluetooth Mesh
-%		\subitem Desarrollo del software para la comunicación entre sensores utilizando Bluetooth Mesh.
-%		\subitem Configuración y optimización de los parámetros de la red para garantizar eficiencia y estabilidad.
-%1		\subitem Documentación técnica del protocolo, incluyendo diagramas de arquitectura y flujo de datos.
-
-%	\item Desarrollo del Firmware para los Sensores ESP32-C3
-%		\subitem Implementación del firmware en microcontroladores ESP32-C3 independientes, donde se simularán los datos de medición.
-%		\subitem Desarrollo del protocolo de comunicación Bluetooth Mesh en forma de una biblioteca modular, facilitando su integración en los sensores comerciales de {\empclientename}.
-%	\subitem Código estructurado y documentado para permitir futuras modificaciones y escalabilidad.
-%Optimización del consumo energético en los sensores.
-	
-%	\item Servidor Web Local para Monitoreo y Configuración
-	%	\subitem Desarrollo de una aplicación web embebida para la visualización de datos en tiempo real.
-	%	\subitem Implementación de una interfaz gráfica intuitiva para la configuración de la red y los sensores.
-	%	\subitem Almacenamiento de datos y configuración en la memoria EEPROM del dispositivo central.
-		
-
-	%\item Integración y Pruebas del Sistema Completo
-	%	\subitem Pruebas de integración entre sensores, red Bluetooth Mesh y servidor web.
-		
-	%\item Documentación y Manuales
-	%	\subitem Manual de usuario para la configuración y operación del sistema.
-	%	\subitem Documentación técnica detallada para el mantenimiento y futuras mejoras.
-	%	\subitem Guía de instalación y despliegue del sistema en invernaderos.
-		
-	%\item Presentación Final del Proyecto
-%		\subitem Informe final con todos los resultados y conclusiones del desarrollo.
-	%	\subitem Presentación técnica para {\empclientename} y el programa de vinculación empresarial.
-%		\subitem Entrega del código fuente, documentación y archivos de configuración.	
-%\end{itemize}
-
-\begin{consigna}{red}
-Los entregables del proyecto son (ejemplo):
+Los siguientes son los entregables de este proyecto: 
 
 \begin{itemize}
-	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
-	\item Código fuente del firmware.
-	\item Diagrama de instalación.
-	\item Memoria del trabajo final.
-	\item etc...
+\item Código fuente del firmware para el nodo central y los nodos de la red.
+\item Código fuente del servidor e interfaz web del nodo central.
+\item Documentación técnica con los resultados de pruebas funcionales, descripción de la arquitectura de la red Bluetooth Mesh y explicación del firmware y sus módulos.
+\item Manual de desarrollador para integrar la biblioteca en futuros dispositivos.
+\item Manual de usuario para la configuración y monitoreo de la red a través de la interfaz web.
+\item Memoria del trabajo final.
 \end{itemize}
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
+Las siguientes son las tareas necesarias para cumplir con los entregables del proyecto y su duración estimada:
 
 \begin{enumerate}
-\item Grupo de tareas 1 (suma h)
+\item  Planificación del proyecto (60 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Definir requerimientos (10 h)
+	\item Definir plan de trabajo (10 h)
+	\item Escribir documento de planificación (40 h)
 	\end{enumerate}
-\item Grupo de tareas 2 (suma h)
+
+\item Preparación del entorno de desarrollo (45 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+	\item Seleccionar y comprar componentes (5 h)
+	\item Instalar entorno de desarrollo (10 h)
+	\item Ensamblar y realizar pruebas iniciales (30 h)
 	\end{enumerate}
-\item Grupo de tareas 3 (suma h)
+
+\item Desarrollo del firmware (230 h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
+	\item Leer documentación sobre Bluetooth Mesh para ESP32-C3 (20 h)
+	\item Probar ejemplos del SDK de Espressif para Bluetooth Mesh (40 h)
+	\item Implementar el módulo para el nodo central de la red (40 h)	
+	\item Implementar el módulo para los otros nodos de red (40 h)
+	\item Agregar test unitarios a la implementación (40 h)
+	\item Probar y mejorar la implementación (40 h)
+	\item Agregar logs para depuración (10 h)
+	\end{enumerate}
+
+\item Desarrollo del servidor web (160 h)
+	\begin{enumerate}
+	\item Leer documentación sobre servidores web para ESP32-C3 (20 h)
+	\item Probar ejemplos de servidores web (20 h)
+	\item Leer documentación sobre interfaz web para ESP32-C3 (10 h)
+	\item Probar ejemplos de interfaz web (10 h)
+	\item Implementar el servidor web (40 h)
+	\item Diseñar la interfaz web (20 h)
+	\item Implementar la interfaz web (40 h)
+	\end{enumerate}
+
+\item Pruebas y validaciones (25 h)
+	\begin{enumerate}
+	\item Probar la configuración del nodo central (5 h)
+	\item Probar la comunicación entre nodos (5 h)
+	\item Probar la escalabilidad del sistema (5 h)
+	\item Probar la latencia y respuesta del servidor web (5 h)
+	\item Probar la usabilidad de la interfaz web (5 h)
+	\end{enumerate}
+	
+\item Documentación (80 h)
+	\begin{enumerate}
+	\item Documentación técnica de la arquitectura (10 h)
+	\item Documentación técnica del firmware (10 h)
+	\item Manuales de usuario (10 h)
+	\item Informe de validaciones (10 h)
+	\item Memoria de trabajo final (40 h)
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: tantas.
-
-\textbf{¡Importante!:} la unidad de horas es h y va separada por espacio del número. Es incorrecto escribir ``23hs".
-
-\textbf{Se recomienda que no haya ninguna tarea que lleve más de 40 h.} De ser así se recomienda dividirla en tareas de menor duración.
-
-\end{consigna}
+Cantidad total de horas: 600 h
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}

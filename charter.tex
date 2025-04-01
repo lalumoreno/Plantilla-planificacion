@@ -62,10 +62,10 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 1      & Se completa hasta el punto 5 inclusive                & {19} de {marzo} de 2025 \\ \hline
 2      & Se ajustan los puntos 1, 3 y 4 con las correcciones de Wentux Tecnoagro. \newline
 		 Se completa hasta el punto 9 inclusive               & {26} de {marzo} de 2025 \\ \hline
-%3      & Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
+3      & Se ajustan los puntos 6 y 7 con los comentarios de Wentux Tecnoagro. \newline 
+		Se completa hasta el punto 12 inclusive                & {día} de {mes} de 202X \\ \hline
 %4      & Se completa el plan	                                 & {día} de {mes} de 202X \\ \hline
 
-% Si hay más correcciones pasada la versión 4 también se deben especificar acá
 
 \end{tabularx}
 \end{table}
@@ -238,6 +238,7 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 		\item El sistema debe detectar cuando un nodo se desconecta y reflejar su estado en la interfaz web.
 		\item Si un nodo se desconecta, debe intentar reconectarse automáticamente a la red.
 		\item El servidor web del nodo central debe ser accesible solo dentro de la red Wi-Fi local.
+		\item (Opcional) El servidor web del nodo central debe requerir autenticación mediante un usuario y una contraseña definidos por el usuario final para restringir el acceso.	
 		\item (Opcional) Cada nodo debe desplegar una interfaz web local para configurar datos de identificación dentro de la red. 
 	\end{enumerate}
 
@@ -248,14 +249,13 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 		\subitem Agregar o eliminar nodos de la red.
 		\subitem Visualizar los datos transmitidos y recibidos por cada nodo.
 		\subitem Visualizar datos de identificación de cada nodo.
-		\subitem (Opcional) Configurar datos de identificación de cada nodo.
+		\subitem Configurar datos de identificación de cada nodo.
 		\item La interfaz web debe ser intuitiva, con una estructura clara para la configuración y monitoreo de la red.
 		\item La interfaz web debe ser accesible desde dispositivos móviles y de escritorio.
 		\item Debe haber una representación gráfica o en lista del estado de cada nodo (activo/inactivo).
 
 		\item (Opcional) Desde la interfaz web de cada nodo, el usuario debe poder:
 		\subitem Asignar nombres personalizados al nodo.
-		\subitem Establecer el nodo como sensor o actuador.
 		\subitem Visualizar si el nodo está activo o inactivo dentro de la red.
 	\end{enumerate}
 	
@@ -264,7 +264,7 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 		\item La red de sensores y actuadores debe implementarse utilizando Bluetooth Mesh sobre microcontroladores ESP32-C3.
 		\item Se debe trabajar con microcontroladores ESP32-C3 adquiridos para el proyecto, en lugar de usar los dispositivos comerciales de Wentux Tecnoagro.
 		\item Se debe utilizar el SDK de Espressif para el desarrollo del firmware Bluetooth Mesh.
-		\item El servidor web se debe implementar con tecnologías compatibles con el ESP32-C3 (ej., ESP-IDF, AsyncWebServer).
+		\item El servidor web se debe implementar con tecnologías compatibles con el ESP32-C3 (ej., ESP-IDF, AsyncWebServer). %Considerar Websockets
 		\item El sistema debe soportar la conexión de al menos 5 nodos simultáneamente.
 		\item La implementación debe permitir escalar la red a más de 5 nodos con mínimas modificaciones en el software.
 		\item Cada nodo debe poder enviar y recibir datos del nodo central al menos cada 5 segundos.		
@@ -302,9 +302,9 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 Para las siguientes historias de usuario, se identifican los siguientes roles principales:
 
 \begin{itemize}
-	\item Administrador: es {\empclientename} como dueño y administrador del sistema. Tiene acceso a la configuración avanzada del sistema, incluyendo la gestión de nodos y ajustes de la red Bluetooth Mesh.
-	\item Usuario: es el usuario final al que {\empclientename} ofrecerá su solución. Interactúa con el sistema a través de la interfaz web del nodo central para monitorear el estado de la red y visualizar datos de los sensores y actuadores.
-	\item Desarrollador: es la {\authorname} como encargada de implementar el sistema, asegurando que el firmware, la interfaz web y la comunicación entre nodos funcionen correctamente.
+	\item Administrador: es {\empclientename} como dueño y distribuidor del sistema. Tiene acceso al hardware y al software de los dispositivos conectados a la red Bluetooth Mesh.
+	\item Usuario: es el usuario final al que {\empclientename} ofrecerá su solución. Interactúa con el sistema a través de la interfaz web del nodo central para gestionar, monitorear y visualizar el estado de la red en tiempo real.
+	\item Desarrollador: es la {\authorname} como encargada de diseñar e implementar el sistema. Garantiza que todos los requerimientos se cumplan, para que el firmware y la interfaz web funcionen correctamente.
 \end{itemize}
 
 Las historias de usuario se agrupan a continuación por funcionalidad y se han estimado con una puntuación basada en la relevancia, dificultad e incertidumbre de cada una. Cada criterio recibe un valor entre 1 y 3, y la puntuación total de la historia corresponde a la suma de estos valores. El puntaje mínimo es 1 y el máximo es 9, reflejando el esfuerzo relativo requerido para su implementación.
@@ -334,6 +334,7 @@ Las historias de usuario se agrupan a continuación por funcionalidad y se han e
 
 \item Interfaz web del nodo central
 \begin{enumerate}
+ 	\item Como usuario, quiero acceder a la interfaz web mediante un usuario y una contraseña establecida previamente para garantizar la seguridad del sistema.
 	\item Como usuario, quiero ver el estado actual de la red en la interfaz web para monitorear su funcionamiento. \textit{Story points}: 9 (relevancia: 3, dificultad: 3, incertidumbre: 3)
 
 	\item Como usuario, quiero visualizar una lista o representación gráfica del estado de cada nodo (activo/inactivo) para tener una visión clara de la red. \textit{Story points}: 9 (relevancia: 3, dificultad: 3, incertidumbre: 3)
@@ -346,7 +347,7 @@ Las historias de usuario se agrupan a continuación por funcionalidad y se han e
 
 	\item Como usuario, quiero visualizar los datos de identificación de cada nodo para reconocerlos fácilmente en la red. \textit{Story points}: 5 (relevancia: 1, dificultad: 2, incertidumbre: 2)
 
-	\item (Opcional) Como usuario, quiero configurar los datos de identificación de cada nodo para asignar nombres personalizados y roles dentro de la red. \textit{Story points}: 5 (relevancia: 0, dificultad: 3, incertidumbre: 2)
+	\item Como usuario, quiero configurar los datos de identificación de cada nodo para asignar nombres personalizados y roles dentro de la red. \textit{Story points}: 5 (relevancia: 0, dificultad: 3, incertidumbre: 2)
 
 	\item Como usuario, quiero que la interfaz web sea intuitiva para configurar y monitorear la red de manera sencilla. \textit{Story points}: 6 (relevancia: 2, dificultad: 2, incertidumbre: 2)
 
@@ -357,8 +358,6 @@ Las historias de usuario se agrupan a continuación por funcionalidad y se han e
 	\item Como usuario, quiero que cada nodo tenga una interfaz web local para configurar sus datos de identificación dentro de la red. \textit{Story points}: 4 (relevancia: 0, dificultad: 2, incertidumbre: 2)
 
 	\item Como usuario, quiero asignar nombres personalizados a los nodos desde su interfaz web para identificarlos fácilmente. \textit{Story points}: 2 (relevancia: 0, dificultad: 1, incertidumbre: 1)
-
-	\item Como usuario, quiero establecer si un nodo es sensor o actuador para definir su función dentro de la red. \textit{Story points}: 3 (relevancia: 0, dificultad: 1, incertidumbre: 2)
 
 	\item Como usuario, quiero visualizar si un nodo está activo o inactivo en la red desde su interfaz web para asegurar su correcto funcionamiento. \textit{Story points}: 2 (relevancia: 0, dificultad: 1, incertidumbre: 1)
 

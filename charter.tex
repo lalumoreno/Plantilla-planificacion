@@ -334,7 +334,8 @@ Las historias de usuario se agrupan a continuación por funcionalidad y se han e
 
 \item Interfaz web del nodo central
 \begin{enumerate}
- 	\item Como usuario, quiero acceder a la interfaz web mediante un usuario y una contraseña establecida previamente para garantizar la seguridad del sistema.
+ 	\item (Opcional) Como usuario, quiero acceder a la interfaz web mediante un usuario y una contraseña establecida previamente para garantizar la seguridad del sistema. \textit{Story points}: 6 (relevancia: 0, dificultad: 3, incertidumbre: 3)
+ 
 	\item Como usuario, quiero ver el estado actual de la red en la interfaz web para monitorear su funcionamiento. \textit{Story points}: 9 (relevancia: 3, dificultad: 3, incertidumbre: 3)
 
 	\item Como usuario, quiero visualizar una lista o representación gráfica del estado de cada nodo (activo/inactivo) para tener una visión clara de la red. \textit{Story points}: 9 (relevancia: 3, dificultad: 3, incertidumbre: 3)
@@ -347,7 +348,7 @@ Las historias de usuario se agrupan a continuación por funcionalidad y se han e
 
 	\item Como usuario, quiero visualizar los datos de identificación de cada nodo para reconocerlos fácilmente en la red. \textit{Story points}: 5 (relevancia: 1, dificultad: 2, incertidumbre: 2)
 
-	\item Como usuario, quiero configurar los datos de identificación de cada nodo para asignar nombres personalizados y roles dentro de la red. \textit{Story points}: 5 (relevancia: 0, dificultad: 3, incertidumbre: 2)
+	\item Como usuario, quiero configurar los datos de identificación de cada nodo para asignar nombres personalizados y roles dentro de la red. \textit{Story points}: 7 (relevancia: 2, dificultad: 3, incertidumbre: 2)
 
 	\item Como usuario, quiero que la interfaz web sea intuitiva para configurar y monitorear la red de manera sencilla. \textit{Story points}: 6 (relevancia: 2, dificultad: 2, incertidumbre: 2)
 
@@ -458,25 +459,17 @@ Cantidad total de horas: 600 h
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior.
+En la figura \ref{fig:AoN} se muestra el diagrama Activity On Node construido a partir del desglose de tareas definido en la etapa anterior. A pesar de que solo se dispone de un recurso humano a lo largo del proyecto, varias tareas relacionadas entre sí se ejecutan en paralelo. Los diferentes colores representan los distintos grupos de tareas, y el tiempo está expresado en horas.
 
-Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
-\href{https://app.diagrams.net}{Draw.io}
-
+El camino crítico del proyecto, con una duración total de 430 horas, se indica con flechas más oscuras, destacando la secuencia de actividades que determinan la duración mínima del proyecto.
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
+\includegraphics[width=.85\textwidth]{./Figuras/Diagrama-AoN.png}
 \caption{Diagrama de \textit{Activity on Node}.}
 \label{fig:AoN}
 \end{figure}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
-
-\end{consigna}
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
@@ -510,59 +503,14 @@ Es importante destacar que el ancho del diagrama estará dado por la longitud de
 (Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
 ajustar este valor y, quizás, acortar los nombres de las tareas.
 
-\begin{figure}[htpb]
-  \begin{center}
-    \begin{ganttchart}[
-      time slot unit=day,
-      time slot format=isodate,
-      x unit=0.038cm,
-      y unit title=0.7cm,
-      y unit chart=0.6cm,
-      milestone/.append style={xscale=4}
-      ]{2021-03-05}{2021-12-16}
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
-      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%Organización
-      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
-      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
-      %%%%%%%%%%%%%%%%%Ejecución
-      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
-      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
-      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
-      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
-      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
-      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
-      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
-      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
-      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
-      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
-      % %%%%%%%%%%%%%%%%%Finalización
-      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
-      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
-      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
-      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
-      % La fecha del siguiente milestone es la fecha en que terminamos la memoria
-      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
-      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
-      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \end{ganttchart}
-  \end{center}
-  \caption{Diagrama de gantt de ejemplo}
-  \label{fig:gantt}
-\end{figure}
 
-
-\begin{landscape}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
+\includegraphics[height=.75\textheight]{./Figuras/Gantt.pdf}
 \caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
 \label{fig:diagGantt}
 \end{figure}
 
-\end{landscape}
 
 \end{consigna}
 

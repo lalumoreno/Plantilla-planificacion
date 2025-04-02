@@ -202,7 +202,7 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 
 \begin{itemize}
 \item Disponibilidad de tiempo
-\subitem La {\authorname} cuenta con el tiempo suficiente para completar el desarrollo del proyecto dentro de un plazo de siete meses, con una dedicación promedio de 22 horas por semana. 
+\subitem La {\authorname} cuenta con el tiempo suficiente para completar el desarrollo del proyecto dentro de un plazo de siete meses, con una dedicación promedio de 20 horas por semana. 
 \subitem No habrá interrupciones significativas en el desarrollo del proyecto debido a cambios en la disponibilidad del equipo de trabajo.
 \subitem Se espera contar con la colaboración de {\clientename} y {\empclientename} para responder consultas técnicas o aclaraciones necesarias durante el desarrollo.
 
@@ -459,9 +459,9 @@ Cantidad total de horas: 600 h
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-En la figura \ref{fig:AoN} se muestra el diagrama Activity On Node construido a partir del desglose de tareas definido en la etapa anterior. A pesar de que solo se dispone de un recurso humano a lo largo del proyecto, varias tareas relacionadas entre sí se ejecutan en paralelo. Los diferentes colores representan los distintos grupos de tareas, y el tiempo está expresado en horas.
+En la figura \ref{fig:AoN} se muestra el diagrama Activity On Node (AoN) construido a partir del desglose de tareas definido en el punto anterior. A pesar de que solo se dispone de un recurso humano a lo largo del proyecto, varias tareas relacionadas entre sí se pueden ejecutar en paralelo. Los diferentes colores en el diagrama representan cada grupo de tareas, y el tiempo está expresado en horas.
 
-El camino crítico del proyecto, con una duración total de 430 horas, se indica con flechas más oscuras, destacando la secuencia de actividades que determinan la duración mínima del proyecto.
+El camino crítico del proyecto, con una duración total de 430 horas, se representa con flechas más oscuras, destacando la secuencia de actividades que determinan la duración mínima del proyecto.
 
 \begin{figure}[htpb]
 \centering 
@@ -474,62 +474,25 @@ El camino crítico del proyecto, con una duración total de 430 horas, se indica
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
+En la figura \ref{fig:diagGantt} se presenta el diagrama de Gantt, elaborado a partir del desglose de tareas y del diagrama AoN definido en el punto anterior. Considerando la paralelización de tareas establecida, el diagrama muestra la fecha estimada de inicio y finalización de cada actividad, tomando en cuenta su duración y asumiendo una dedicación promedio de 20 horas semanales al desarrollo del proyecto.
 
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
-
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
-En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
-fue elaborado utilizando 
-\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
-
-Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
-(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
-ajustar este valor y, quizás, acortar los nombres de las tareas.
+Al igual que en el diagrama AoN, cada grupo de tareas está representado con un color diferente para facilitar su identificación. El proyecto tiene como fecha de inicio el 11 de marzo de 2025 y finalizará la semana del 14 de octubre de 2025.
 
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.75\textheight]{./Figuras/Gantt.pdf}
-\caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
+\includegraphics[height=.62\textheight]{./Figuras/Gantt.pdf}
+\caption{Diagrama de Gantt.}
 \label{fig:diagGantt}
 \end{figure}
-
-
-\end{consigna}
 
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
+A continuación se presenta la tabla de costos directos e indirectos asociados a este proyecto. Los valores unitarios se encuentran expresados en dolares estadounidenses (USD). Los valores totales se encuentran en USD y en pesos argentinos (ARS). 
 
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
-
-\end{consigna}
+Tasa de conversion: USD \$1 = ARS \$1072.87, correspondiente a la fecha 2 de abril de 2025.
 
 \begin{table}[htpb]
 \centering
@@ -541,51 +504,76 @@ Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si 
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline 
+
+  \multicolumn{1}{|l|}{Módulos ESP32-C3 mini} &
+  \multicolumn{1}{c|}{4} &
+  \multicolumn{1}{c|}{\$6} &
+  \multicolumn{1}{c|}{\$24} \\ \hline
+ 
+  \multicolumn{1}{|l|}{Componentes electrónicos adicionales} & 
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$10} &
+  \multicolumn{1}{c|}{\$10} \\ \hline
+
+  \multicolumn{1}{|l|}{Computadora personal} & 
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{\$400} &
+  \multicolumn{1}{c|}{\$400} \\ \hline
+  
+  \multicolumn{1}{|l|}{Hora de trabajo ingeniera} & 
+  \multicolumn{1}{c|}{600} &
+  \multicolumn{1}{c|}{\$10} &
+  \multicolumn{1}{c|}{\$6000} \\ \hline
+ 
+  \multicolumn{1}{|l|}{Hora de consultoria especialista} & 
+  \multicolumn{1}{c|}{14} &
+  \multicolumn{1}{c|}{\$20} &
+  \multicolumn{1}{c|}{\$280} \\ \hline
+  
+\multicolumn{3}{|c|}{SUBTOTAL EN USD} &
+  \multicolumn{1}{c|}{\$6714} \\ \hline
+ 
+ \multicolumn{3}{|c|}{SUBTOTAL EN ARS} &
+  \multicolumn{1}{c|}{\$7'203.249} \\ \hline
+  
+\rowcolor[HTML]{C0C0C0}
+
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+
+  \multicolumn{1}{|l|}{Servicios de oficina mensual} & 
+  \multicolumn{1}{c|}{7} &
+  \multicolumn{1}{c|}{\$25} &
+  \multicolumn{1}{c|}{\$175} \\ \hline
+  
+  \multicolumn{1}{|l|}{Fondo de riesgos para ESP32-C3} & 
+  \multicolumn{1}{c|}{2} &
+  \multicolumn{1}{c|}{\$6} &
+  \multicolumn{1}{c|}{\$12} \\ \hline
+    
+  \multicolumn{3}{|c|}{SUBTOTAL EN USD} &
+  \multicolumn{1}{c|}{\$187} \\ \hline
+  
+  \multicolumn{3}{|c|}{SUBTOTAL EN ARS} &
+  \multicolumn{1}{c|}{\$200.625} \\ \hline
+  
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
-   \\ \hline
+\multicolumn{3}{|c|}{TOTAL EN USD} &
+\multicolumn{1}{c|}{\$6901} \\ \hline
+  
+\rowcolor[HTML]{C0C0C0}
+\multicolumn{3}{|c|}{TOTAL EN ARS} &
+\multicolumn{1}{c|}{\$7'403.848} \\ \hline
+
 \end{tabularx}%
 \end{table}
+
+
 
 
 \section{13. Gestión de riesgos}

@@ -30,7 +30,7 @@
  
 \fechaINICIO{11 de marzo de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{22 de abril de 2025} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{noviembre 2025}	%Fecha de defensa pública del trabajo final
+\fechaFINALTrabajo{diciembre 2025}		%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -270,7 +270,6 @@ Este listado aclara qué aspectos quedan fuera del alcance del proyecto:
 		\item Cada nodo debe poder enviar y recibir datos del nodo central al menos cada 5 segundos.		
 		\item El tiempo de respuesta del servidor web no debe exceder los 500 ms en condiciones normales de operación.
 		\item La comunicación entre nodos debe utilizar los mecanismos de seguridad estándar del SDK de Espressif para Bluetooth Mesh.
-		\item El firmware de los nodos debe ser modular y reutilizable para futuras implementaciones en el hardware comercial de Wentux Tecnoagro.
 		\item El código fuente debe ser modular y documentado, permitiendo futuras modificaciones e integraciones.
 	\end{enumerate}
 	
@@ -490,7 +489,7 @@ Al igual que en el diagrama AoN, cada grupo de tareas está representado con un 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-A continuación se presenta la tabla de costos directos e indirectos asociados a este proyecto. Los valores unitarios se encuentran expresados en dolares estadounidenses (USD). Los valores totales se encuentran en USD y en pesos argentinos (ARS). 
+A continuación, se presenta la tabla de costos directos e indirectos asociados a este proyecto. Los valores unitarios se encuentran expresados en dolares estadounidenses (USD). Los valores totales se encuentran en USD y en pesos argentinos (ARS). 
 
 Tasa de conversion: USD \$1 = ARS \$1072.87, correspondiente a la fecha 2 de abril de 2025.
 
@@ -579,35 +578,68 @@ Descripción &
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
 
-\begin{consigna}{red}
-a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
-Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
+a) Identificación de los riesgos y estimación de sus consecuencias:
+
+Riesgo 1: Problemas en la implementación de la red Bluetooth Mesh
 \begin{itemize}
-	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-	Justificar el motivo por el cual se asigna determinado número de (O). 
+	\item Severidad (S): 10. \\
+	Afectaría la comunicación total del sistema y es el requerimiento principal del proyecto.	
+	\item Probabilidad de ocurrencia (O): 9. \\
+	La tecnología Bluetooth Mesh es compleja y no se cuenta con experiencia previa desarrollando firmware para ESP32-C3. 
 \end{itemize}   
 
-Riesgo 2:
+Riesgo 2: Cambios constantes en requerimientos
 \begin{itemize}
-	\item Severidad (S): X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
-\end{itemize}
+	\item Severidad (S): 5. \\
+	Podría generar retrabajo y retrasos.	
+	\item Probabilidad de ocurrencia (O): 6. \\
+	Es común en proyectos con interfaces nuevas y pruebas de concepto.
+\end{itemize}   
 
-Riesgo 3:
+Riesgo 3: Baja disponibilidad del equipo de desarrollo
 \begin{itemize}
-	\item Severidad (S):  X.\\
-	Justificación...
-	\item Ocurrencia (O): Y.\\
-	Justificación...
-\end{itemize}
+	\item Severidad (S): 8. \\
+	Puede ralentizar el avance del proyecto.
+	\item Probabilidad de ocurrencia (O): 7. \\
+	Riesgo alto al tener un solo desarrollador en el proyecto.
+\end{itemize}   
+
+Riesgo 4: Fallas en pruebas de validación
+\begin{itemize}
+	\item Severidad (S): 5. \\
+	Sin validación, no se garantiza estabilidad ni confiabilidad.
+	\item Probabilidad de ocurrencia (O): 5. \\
+	Riesgo medio si no se hacen pruebas completas.
+\end{itemize}   
+
+Riesgo 5: Documentación incompleta
+\begin{itemize}
+	\item Severidad (S): 6. \\
+	Dificulta mantenibilidad y transferencia de conocimiento.
+	\item Probabilidad de ocurrencia (O): 7. \\
+	Suele dejarse para el final.
+\end{itemize}   
+
+Riesgo 6: Subestimación del esfuerzo necesario para cada historia
+\begin{itemize}
+	\item Severidad (S): 7. \\
+	Puede impactar cronograma y presupuesto.
+	\item Probabilidad de ocurrencia (O): 8. \\
+	Siempre existe cierto grado de incertidumbre.
+\end{itemize}   
+
+Riesgo 7: Presupuesto insuficiente para reemplazar hardware
+\begin{itemize}
+	\item Severidad (S): 8. \\
+	Sin hardware funcional no se puede avanzar.
+	\item Probabilidad de ocurrencia (O): 3. \\
+	Ya se conocen los costos aproximados y el hardware a adquirir.
+\end{itemize}  
+
+b) Tabla de gestión de riesgos:
 
 
-b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
+El número de prioridad de riesgo (RPN, por sus siglas en inglés) se calcula como RPN = Severidad (S) x Probabilidad de ocurrencia (O). Se priorizarán medidas de mitigación para aquellos riesgos cuyo RPN sea mayor a 50, por considerarse de impacto significativo. En la tabla, los valores marcados con un asterisco (*) corresponden a los niveles de severidad y probabilidad después de aplicar las acciones de mitigación.
 
 \begin{table}[htpb]
 \centering
@@ -615,61 +647,141 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
-       &   &   &     &    &    &      \\ \hline
+Problemas en la implementación de Bluetooth Mesh       &
+10   & 9  &  90   & 10    & 6   & 60     \\ \hline
+Cambios constantes en requerimientos       &   
+5   & 6  &  30   &    &    &      \\ \hline
+Baja disponibilidad del equipo de desarrollo       &
+8    & 7  &  56   & 8   & 5   & 40     \\ \hline
+Fallas en pruebas de validación       &   
+5    & 5  &  25   &    &    &      \\ \hline
+Documentación incompleta       &   
+6    & 7  &  42   &    &    &      \\ \hline
+Subestimación del esfuerzo necesario para cada historia     &
+7    & 8  &  56  & 7    & 5   & 35 \\ \hline
+Presupuesto insuficiente para reemplazar hardware       & 
+8    & 3  &  24  &    &    &      \\ \hline
 \end{tabularx}%
 \end{table}
 
-Criterio adoptado: 
+c) Plan de mitigación:
 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
+A continuación, se detallan los riesgos priorizados cuyo RPN supera el umbral de 50, junto con sus respectivas estrategias de mitigación y la reevaluación de severidad y probabilidad tras aplicar dichas acciones.
 
-Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+Riesgo 1: Problemas en la implementación de Bluetooth Mesh.
 
-c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
- 
-Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
-  Nueva asignación de S y O, con su respectiva justificación:
-  \begin{itemize}
-	\item Severidad (S*): mientras más severo, más alto es el número (usar números del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de severidad (S).
-	\item Probabilidad de ocurrencia (O*): mientras más probable, más alto es el número (usar del 1 al 10).
-          Justificar el motivo por el cual se asigna determinado número de (O).
-	\end{itemize}
+Mitigación: Capacitación técnica previa, ejecución de pruebas con ejemplos oficiales, uso de librerías estables y soporte del director del proyecto y de ingenieros con experiencia en ESP32.
 
-Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
-Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+\begin{itemize}
+	\item Severidad (S*): 10. \\
+	El impacto sigue siendo crítico si ocurre, ya que afectaría la funcionalidad base del sistema.
+	\item Probabilidad de ocurrencia (O*): 6. \\
+	Gracias a la preparación técnica y el acompañamiento experto, la probabilidad se reduce moderadamente.
+\end{itemize}   
 
-\end{consigna}
+Riesgo 3: Baja disponibilidad del equipo de desarrollo
+
+Mitigación: Definición de un cronograma realista, considerando la disponibilidad semanal de los miembros del equipo, así como vacaciones y feriados.
+\begin{itemize}
+	\item Severidad (S*): 8. \\
+	El impacto sigue siendo alto, pues podría generar retrasos importantes en el proyecto.
+	\item Probabilidad de ocurrencia (O*): 5. \\
+	Con una planificación adecuada, la posibilidad de que el equipo no esté disponible disminuye significativamente.
+\end{itemize}   
+
+Riesgo 6: Subestimación del esfuerzo necesario para cada historia
+
+Mitigación: Planificación basada en iteraciones ágiles, con reevaluación y refinamiento periódico de las estimaciones a medida que avanza el proyecto.
+\begin{itemize}
+	\item Severidad (S*): 7. \\
+	El impacto continúa siendo considerable, ya que puede comprometer los tiempos de entrega y la calidad.
+	\item Probabilidad de ocurrencia (O*): 5. \\
+	La probabilidad se reduce mediante ciclos de revisión y mejora continua en las estimaciones.
+\end{itemize}   
 
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}{red}
-Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
 
 \begin{itemize} 
-\item Req \#1: copiar acá el requerimiento con su correspondiente número.
-
+\item Req \#1.1: El nodo central debe actuar como coordinador de la red Bluetooth Mesh, recopilando datos de los sensores y enviando comandos a los actuadores.
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+	\item Verificación: Correr pruebas locales de enviar mensajes a un nodo en especifico y recibir respuesta del mismo. Revisar logs de tráfico de mensajes entre nodos y el nodo central.
+	\item Validación: Comprobar desde la interfaz que el nodo central recibe datos de los sensores y envía comandos a los actuadores.
+\end{itemize}
+
+
+\item Req \#1.2: Cada nodo de la red debe ser capaz de retransmitir datos para extender la cobertura.
+\begin{itemize}
+	\item Verificación: Correr pruebas locales de enviar mensajes al nodo más lejano asegurando que pase por un nodo intermedio y recibir respuesta del mismo. Revisar logs de tráfico de mensajes entre nodos y el nodo central.
+	\item Validación: Comprobar desde la interfaz que el nodo central recibe datos de los sensores más lejanos y envía comandos a los actuadores más lejanos.
+\end{itemize}
+
+
+\item Req \#1.4: El nodo central debe desplegar un servidor web local para la configuración y monitoreo de la red.
+\begin{itemize}
+	\item Verificación: Confirmar que el servidor web inicia al encender el ESP32-C3 y responde a peticiones locales.
+	\item Validación: Acceder a la interfaz web desde un navegador utilizando la IP y puerto del nodo central y navegar por sus secciones.
+\end{itemize}
+
+
+\item Req \#1.5: El sistema debe detectar cuando un nodo se desconecta y reflejar su estado en la interfaz web.
+\begin{itemize}
+	\item Verificación: Forzar desconexión de un nodo y revisar en los logs que el sistema registre el evento en tiempo real. Verificar que el evento de desconexión se actualiza en la interfaz web.
+	\item Validación: Desconectar o apagar un nodo y observar que la interfaz web lo marque como inactivo.
+\end{itemize}
+
+
+\item Req \#2.1.1: Desde la interfaz web del nodo central, el usuario debe poder visualizar el estado actual de la red
+\begin{itemize}
+	\item Verificación: Verificar por medio de logs la estructura de datos que representa la red y cómo se actualiza en el frontend.
+	\item Validación: Cargar la interfaz y observar los estados de los nodos en tiempo real.
+\end{itemize}
+
+
+\item Req \#2.1.2: Desde la interfaz web del nodo central, el usuario debe poder agregar o eliminar nodos de la red.
+\begin{itemize}
+	\item Verificación: Verificar que el firmware procese correctamente las solicitudes de alta y baja de nodos utilizando pruebas locales.
+	\item Validación: Usar la interfaz para agregar o quitar nodos y confirmar los cambios en la red.
+\end{itemize}
+
+\item Req \#3.1: La red de sensores y actuadores debe implementarse utilizando Bluetooth Mesh sobre microcontroladores ESP32-C3.
+\begin{itemize}
+	\item Verificación: Verificar que el firmware compile con ESP-IDF para ESP32-C3 y utilice el stack Mesh.
+	\item Validación: Instalar el firmware en diferentes ESP32-C3 y comprobar que todos pueden ser incluidos de inmediato como nodos a la red. 
+\end{itemize}
+
+
+\item Req \#3.5: El sistema debe soportar la conexión de al menos 5 nodos simultáneamente.
+\begin{itemize}
+	\item Verificación: Probar la red con 5 nodos activos, monitoreando consumo de recursos (RAM, CPU), latencia y comprobando la comunicación con cada uno.
+	\item Validación: Verificar que los 5 nodos aparecen y funcionan correctamente en la interfaz web.
+\end{itemize}
+
+
+\item Re1 \#3.7: Cada nodo debe poder enviar y recibir datos del nodo central al menos cada 5 segundos.
+\begin{itemize}
+	\item Verificación: Revisar los timers y logs de envío/recepción de paquetes en los nodos.
+	\item Validación: Observar actualizaciones periódicas de datos en la interfaz web (cada 5s máximo).
+\end{itemize}
+
+
+\item Req \#3.10: El código fuente debe ser modular y documentado, permitiendo futuras modificaciones e integraciones.
+\begin{itemize}
+	\item Verificación: Revisar la estructura del código, uso de funciones independientes, archivos reutilizables. Ejecutar test unitarios para garantizar la modularidad del código.
+	\item Validación: Intenter hacer uso de algunas de las funciones desarrolladas en algun hardware de Wentux Tecnoagro. 
+\end{itemize}
+
+
+\item Req \#3.8: El tiempo de respuesta del servidor web no debe exceder los 500 ms en condiciones normales de operación.
+\begin{itemize}
+	\item Verificación: Medir el tiempo de respuesta con herramientas como curl, Postman o logs del servidor.
+	\item Validación: Interactuar con la interfaz y validar que las acciones respondan de forma imperceptible como en tiempo real.
 \end{itemize}
 
 \end{itemize}
 
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
-
-Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
-
-En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-\end{consigna}
 
 \section{15. Procesos de cierre}    
 \label{sec:cierre}

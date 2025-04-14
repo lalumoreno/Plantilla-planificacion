@@ -66,6 +66,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 		Se completa hasta el punto 12 inclusive                & {2} de {abril} de 2025 \\ \hline
 4      & Se ajusta el cronograma en el punto 11. \newline
 Se completa la planificación                          & {9} de {abril} de 2025 \\ \hline
+5      & Ajustes menores de forma.                           & {13} de {abril} de 2025 \\ \hline
 
 
 \end{tabularx}
@@ -581,7 +582,7 @@ Descripción &
 
 a) Identificación de los riesgos y estimación de sus consecuencias:
 
-Riesgo 1: Problemas en la implementación de la red Bluetooth Mesh
+Riesgo 1: problemas en la implementación de la red Bluetooth Mesh
 \begin{itemize}
 	\item Severidad (S): 10. \\
 	Afectaría la comunicación total del sistema y es el requerimiento principal del proyecto.	
@@ -589,7 +590,7 @@ Riesgo 1: Problemas en la implementación de la red Bluetooth Mesh
 	La tecnología Bluetooth Mesh es compleja y no se cuenta con experiencia previa desarrollando firmware para ESP32-C3. 
 \end{itemize}   
 
-Riesgo 2: Cambios constantes en requerimientos
+Riesgo 2: cambios constantes en requerimientos
 \begin{itemize}
 	\item Severidad (S): 5. \\
 	Podría generar retrabajo y retrasos.	
@@ -597,7 +598,7 @@ Riesgo 2: Cambios constantes en requerimientos
 	Es común en proyectos con interfaces nuevas y pruebas de concepto.
 \end{itemize}   
 
-Riesgo 3: Baja disponibilidad del equipo de desarrollo
+Riesgo 3: baja disponibilidad del equipo de desarrollo
 \begin{itemize}
 	\item Severidad (S): 8. \\
 	Puede ralentizar el avance del proyecto.
@@ -605,7 +606,7 @@ Riesgo 3: Baja disponibilidad del equipo de desarrollo
 	Riesgo alto al tener una sola desarrolladora en el proyecto.
 \end{itemize}   
 
-Riesgo 4: Fallas en pruebas de validación
+Riesgo 4: fallas en pruebas de validación
 \begin{itemize}
 	\item Severidad (S): 7. \\
 	Sin validación, no se garantiza estabilidad ni confiabilidad en el sistema.
@@ -613,7 +614,7 @@ Riesgo 4: Fallas en pruebas de validación
 	Riesgo medio si no se cubren todos los requerimientos listados.
 \end{itemize}   
 
-Riesgo 5: Documentación incompleta
+Riesgo 5: documentación incompleta
 \begin{itemize}
 	\item Severidad (S): 6. \\
 	Dificulta mantenibilidad y transferencia de conocimiento.
@@ -621,7 +622,7 @@ Riesgo 5: Documentación incompleta
 	Suele dejarse para el final del trabajo con plazos justos.
 \end{itemize}   
 
-Riesgo 6: Subestimación del esfuerzo necesario para cada historia
+Riesgo 6: subestimación del esfuerzo necesario para cada historia
 \begin{itemize}
 	\item Severidad (S): 7. \\
 	Puede impactar cronograma y presupuesto.
@@ -629,7 +630,7 @@ Riesgo 6: Subestimación del esfuerzo necesario para cada historia
 	Siempre existe cierto grado de incertidumbre durante la planificación inicial.
 \end{itemize}   
 
-Riesgo 7: Presupuesto insuficiente para reemplazar hardware
+Riesgo 7: presupuesto insuficiente para reemplazar hardware
 \begin{itemize}
 	\item Severidad (S): 8. \\
 	Sin hardware funcional no se puede avanzar en el proyecto.
@@ -669,9 +670,9 @@ c) Plan de mitigación:
 
 A continuación, se detallan los riesgos priorizados cuyo RPN supera el umbral de 50, junto con sus respectivas estrategias de mitigación y la reevaluación de severidad y probabilidad tras aplicar dichas acciones.
 
-Riesgo 1: Problemas en la implementación de la red Bluetooth Mesh.
+Riesgo 1: problemas en la implementación de la red Bluetooth Mesh.
 
-Mitigación: Capacitación técnica previa, ejecución de pruebas con ejemplos oficiales, uso de librerías estables y soporte del director del proyecto con experiencia en firmware para ESP32.
+Mitigación: capacitación técnica previa, ejecución de pruebas con ejemplos oficiales, uso de bibliotecas estables y soporte del director del proyecto con experiencia en firmware para ESP32.
 
 \begin{itemize}
 	\item Severidad (S*): 10. \\
@@ -680,9 +681,9 @@ Mitigación: Capacitación técnica previa, ejecución de pruebas con ejemplos o
 	Gracias a la preparación técnica y el acompañamiento experto, la probabilidad se reduce moderadamente.
 \end{itemize}   
 
-Riesgo 3: Baja disponibilidad del equipo de desarrollo
+Riesgo 3: baja disponibilidad del equipo de desarrollo
 
-Mitigación: Definición de un cronograma realista, considerando la disponibilidad semanal de la desarrolladora, así como vacaciones y feriados.
+Mitigación: definición de un cronograma realista, considerando la disponibilidad semanal de la desarrolladora, así como vacaciones y feriados.
 \begin{itemize}
 	\item Severidad (S*): 8. \\
 	El impacto sigue siendo alto, pues podría generar retrasos importantes en el proyecto.
@@ -690,9 +691,9 @@ Mitigación: Definición de un cronograma realista, considerando la disponibilid
 	Con una planificación adecuada, la posibilidad de que la desarrolladora no esté disponible disminuye significativamente.
 \end{itemize}   
 
-Riesgo 6: Subestimación del esfuerzo necesario para cada historia
+Riesgo 6: subestimación del esfuerzo necesario para cada historia
 
-Mitigación: Planificación basada en iteraciones ágiles, con reevaluación y refinamiento periódico de las estimaciones a medida que avanza el proyecto.
+Mitigación: planificación basada en iteraciones ágiles, con reevaluación y refinamiento periódico de las estimaciones a medida que avanza el proyecto.
 \begin{itemize}
 	\item Severidad (S*): 7. \\
 	El impacto continúa siendo considerable, ya que puede comprometer los tiempos de entrega y la calidad.
@@ -706,79 +707,79 @@ Mitigación: Planificación basada en iteraciones ágiles, con reevaluación y r
 
 
 \begin{itemize} 
-\item Req \#1.1: El nodo central debe actuar como coordinador de la red Bluetooth Mesh, recopilando datos de los sensores y enviando comandos a los actuadores.
+\item Req \#1.1. El nodo central debe actuar como coordinador de la red Bluetooth Mesh, recopilando datos de los sensores y enviando comandos a los actuadores.
 \begin{itemize}
-	\item Verificación: Enviar mensajes de prueba desde el nodo central a un nodo en especifico y recibir respuesta del mismo, así como recibir constantemente mensajes de todos los nodos conectados. Revisar logs de tráfico de mensajes entre nodos y el nodo central.
-	\item Validación: Comprobar desde la interfaz web que el nodo central recibe datos de los sensores y envía comandos a los actuadores.
+	\item Verificación: enviar mensajes de prueba desde el nodo central a un nodo en específico y recibir respuesta del mismo, así como recibir constantemente mensajes de todos los nodos conectados. Revisar logs de tráfico de mensajes entre nodos y el nodo central.
+	\item Validación: comprobar desde la interfaz web que el nodo central recibe datos de los sensores y envía comandos a los actuadores.
 \end{itemize}
 
 
-\item Req \#1.2: Cada nodo de la red debe ser capaz de retransmitir datos para extender la cobertura.
+\item Req \#1.2. Cada nodo de la red debe ser capaz de retransmitir datos para extender la cobertura.
 \begin{itemize}
-	\item Verificación: Ubicar los nodos a una distancia de 5m entre sí y enviar mensajes de prueba desde el nodo central al nodo más lejano, asegurando que pase por un nodo intermedio y recibir respuesta del mismo. Enviar mensajes de prueba desde el nodo más lejando al nodo central, asegurando que pase por un nodo intermedio. Revisar logs de tráfico de mensajes entre nodos y el nodo central.
-	\item Validación:  Ubicar los nodos a una distancia de 5m entre sí y comprobar desde la interfaz web que el nodo central recibe datos del sensor más lejanos y envía comandos al actuador más lejano.
+	\item Verificación: ubicar los nodos a una distancia de 5 m entre sí y enviar mensajes de prueba desde el nodo central al nodo más lejano, asegurando que pase por un nodo intermedio y recibir respuesta del mismo. Enviar mensajes de prueba desde el nodo más lejando al nodo central, asegurando que pase por un nodo intermedio. Revisar logs de tráfico de mensajes entre nodos y el nodo central.
+	\item Validación:  ubicar los nodos a una distancia de 5 m entre sí y comprobar desde la interfaz web que el nodo central recibe datos del sensor más lejanos y envía comandos al actuador más lejano.
 \end{itemize}
 
 
-\item Req \#1.4: El nodo central debe desplegar un servidor web local para la configuración y monitoreo de la red.
+\item Req \#1.4. El nodo central debe desplegar un servidor web local para la configuración y monitoreo de la red.
 \begin{itemize}
-	\item Verificación: Confirmar que el servidor web inicia al encender el nodo central y responde a peticiones locales.
-	\item Validación: Acceder a la interfaz web desde un navegador utilizando la IP y puerto del nodo central y navegar por sus secciones.
+	\item Verificación: confirmar que el servidor web inicia al encender el nodo central y responde a peticiones locales.
+	\item Validación: acceder a la interfaz web desde un navegador utilizando la IP y puerto del nodo central y navegar por sus secciones.
 \end{itemize}
 
 
-\item Req \#1.5: El sistema debe detectar cuando un nodo se desconecta y reflejar su estado en la interfaz web.
+\item Req \#1.5. El sistema debe detectar cuando un nodo se desconecta y reflejar su estado en la interfaz web.
 \begin{itemize}
-	\item Verificación: Forzar la desconexión de un nodo y revisar en los logs que el sistema registre el evento en tiempo real. Verificar que el evento de desconexión se actualiza en la interfaz web.
-	\item Validación: Desconectar o apagar un nodo y observar que la interfaz web lo marque como inactivo.
+	\item Verificación: forzar la desconexión de un nodo y revisar en los logs que el sistema registre el evento en tiempo real. Verificar que el evento de desconexión se actualiza en la interfaz web.
+	\item Validación: desconectar o apagar un nodo y observar que la interfaz web lo marque como inactivo.
 \end{itemize}
 
 
-\item Req \#2.1.1: Desde la interfaz web del nodo central, el usuario debe poder visualizar el estado actual de la red
+\item Req \#2.1.1. Desde la interfaz web del nodo central, el usuario debe poder visualizar el estado actual de la red
 \begin{itemize}
-	\item Verificación: Verificar por medio de logs la estructura de datos que representa la red y si se actualiza en tiempo real. Verificar que los datos de la estructura son actualizados en la interfaz web.
-	\item Validación: Abrir la interfaz web y observar los estados de todos los nodos en tiempo real.
+	\item Verificación: verificar por medio de logs la estructura de datos que representa la red y si se actualiza en tiempo real. Verificar que los datos de la estructura son actualizados en la interfaz web.
+	\item Validación: abrir la interfaz web y observar los estados de todos los nodos en tiempo real.
 \end{itemize}
 
 
-\item Req \#2.1.2: Desde la interfaz web del nodo central, el usuario debe poder agregar o eliminar nodos de la red.
+\item Req \#2.1.2. Desde la interfaz web del nodo central, el usuario debe poder agregar o eliminar nodos de la red.
 \begin{itemize}
-	\item Verificación: Verificar que el firmware procese correctamente las solicitudes de alta y baja de nodos utilizando pruebas locales.
-	\item Validación: Usar la interfaz web para agregar o quitar nodos y confirmar los cambios en la red.
+	\item Verificación: verificar que el firmware procese correctamente las solicitudes de alta y baja de nodos utilizando pruebas locales.
+	\item Validación: usar la interfaz web para agregar o quitar nodos y confirmar los cambios en la red.
 \end{itemize}
 
-\item Req \#3.1: La red de sensores y actuadores debe implementarse utilizando Bluetooth Mesh sobre microcontroladores ESP32-C3.
+\item Req \#3.1. La red de sensores y actuadores debe implementarse utilizando Bluetooth Mesh sobre microcontroladores ESP32-C3.
 \begin{itemize}
-	\item Verificación: Verificar que el firmware compile con ESP-IDF para ESP32-C3 y utilice el stack Mesh.
-	\item Validación: Instalar el firmware en diferentes ESP32-C3 y comprobar desde la interfaz web que todos pueden ser agregados como nodos a la red.
-\end{itemize}
-
-
-\item Req \#3.5: El sistema debe soportar la conexión de al menos 5 nodos simultáneamente.
-\begin{itemize}
-	\item Verificación: Probar la red con 5 nodos activos, monitoreando consumo de recursos, latencia y comprobando la comunicación con cada uno.
-	\item Validación: Verificar que los 5 nodos aparecen y funcionan correctamente desde la interfaz web.
+	\item Verificación: verificar que el firmware compile con ESP-IDF para ESP32-C3 y utilice el stack Mesh.
+	\item Validación: instalar el firmware en diferentes ESP32-C3 y comprobar desde la interfaz web que todos pueden ser agregados como nodos a la red.
 \end{itemize}
 
 
-\item Re1 \#3.7: Cada nodo debe poder enviar y recibir datos del nodo central al menos cada 5 segundos.
+\item Req \#3.5. El sistema debe soportar la conexión de al menos 5 nodos simultáneamente.
 \begin{itemize}
-	\item Verificación: Revisar los timers y logs de envío/recepción de paquetes en los nodos.
-	\item Validación: Observar actualizaciones periódicas de datos en la interfaz web, al menos cada 5 segundos.
+	\item Verificación: probar la red con 5 nodos activos, monitoreando consumo de recursos, latencia y comprobando la comunicación con cada uno.
+	\item Validación: verificar que los 5 nodos aparecen y funcionan correctamente desde la interfaz web.
 \end{itemize}
 
 
-\item Req \#3.10: El código fuente debe ser modular y documentado, permitiendo futuras modificaciones e integraciones.
+\item Re1 \#3.7. Cada nodo debe poder enviar y recibir datos del nodo central al menos cada 5 segundos.
 \begin{itemize}
-	\item Verificación: Revisar la estructura del código, uso de funciones independientes y archivos reutilizables. Ejecutar test unitarios para garantizar la modularidad del código.
-	\item Validación: Intentar hacer uso de algunas de las funciones desarrolladas en el hardware de Wentux Tecnoagro. 
+	\item Verificación: revisar los timers y logs de envío/recepción de paquetes en los nodos.
+	\item Validación: observar actualizaciones periódicas de datos en la interfaz web, al menos cada 5 segundos.
 \end{itemize}
 
 
-\item Req \#3.8: El tiempo de respuesta del servidor web no debe exceder los 500 ms en condiciones normales de operación.
+\item Req \#3.10. El código fuente debe ser modular y documentado, permitiendo futuras modificaciones e integraciones.
 \begin{itemize}
-	\item Verificación: Medir el tiempo de respuesta del servidor web con herramientas como curl, Postman y logs del servidor.
-	\item Validación: Interactuar con la interfaz web y validar que las acciones respondan de forma imperceptible en tiempo real.
+	\item Verificación: revisar la estructura del código, uso de funciones independientes y archivos reutilizables. Ejecutar test unitarios para garantizar la modularidad del código.
+	\item Validación: intentar hacer uso de algunas de las funciones desarrolladas en el hardware de Wentux Tecnoagro. 
+\end{itemize}
+
+
+\item Req \#3.8. El tiempo de respuesta del servidor web no debe exceder los 500 ms en condiciones normales de operación.
+\begin{itemize}
+	\item Verificación: medir el tiempo de respuesta del servidor web con herramientas como curl, Postman y logs del servidor.
+	\item Validación: interactuar con la interfaz web y validar que las acciones respondan de forma imperceptible en tiempo real.
 \end{itemize}
 
 \end{itemize}
@@ -792,21 +793,21 @@ Para culminar formalmente el proyecto, se realizará una reunión final de evalu
 \begin{itemize}
 \item Evaluación del cumplimiento del plan del proyecto.
 
-Responsable: El director del proyecto, el {\supname}, será el encargado de analizar si se respetaron los lineamientos establecidos en la planificación inicial del trabajo.
+Responsable: el director del proyecto, el {\supname}, será el encargado de analizar si se respetaron los lineamientos establecidos en la planificación inicial del trabajo.
 
-Procedimiento: Se compararán los requerimientos, cronograma y entregables definidos en el plan inicial con los resultados reales, utilizando métricas de desempeño (por ejemplo, cumplimiento de plazos, alcance técnico logrado y calidad del producto). Esta información se recopilará en una carta de cierre que será presentada y discutida en la presentación pública del trabajo final. 
+Procedimiento: se compararán los requerimientos, cronograma y entregables definidos en el plan inicial con los resultados reales, utilizando métricas de desempeño (por ejemplo, cumplimiento de plazos, alcance técnico logrado y calidad del producto). Esta información se recopilará en una carta de cierre que será presentada y discutida en la presentación pública del trabajo final. 
 
 \item Identificación de técnicas, procedimientos y resolución de problemas.
 
-Responsable: El responsable del proyecto, la {\authorname}, será la encargada de identificar las técnicas y procedimientos que resultaron útiles o ineficientes, así como los problemas más relevantes surgidos durante el proyecto.
+Responsable: el responsable del proyecto, la {\authorname}, será la encargada de identificar las técnicas y procedimientos que resultaron útiles o ineficientes, así como los problemas más relevantes surgidos durante el proyecto.
 
-Procedimiento: En la memoria del trabajo final se documentarán las prácticas exitosas, los obstáculos enfrentados y las soluciones adoptadas. Este documento quedará archivado como referencia para futuros proyectos similares.
+Procedimiento: en la memoria del trabajo final se documentarán las prácticas exitosas, los obstáculos enfrentados y las soluciones adoptadas. Este documento quedará archivado como referencia para futuros proyectos similares.
 
 \item Acto de agradecimiento.
 
-Responsable: El cliente, {\clientename}, organizará una instancia de cierre virtual para agradecer la colaboración de todos los interesados, con especial atención al equipo de desarrollo y los colaboradores clave.
+Responsable: el cliente, {\clientename}, organizará una instancia de cierre virtual para agradecer la colaboración de todos los interesados, con especial atención al equipo de desarrollo y los colaboradores clave.
 
-Financiación: No se presupuestan gastos asociados al ser un encuentro virtual.
+Financiación: no se presupuestan gastos asociados al ser un encuentro virtual.
 \end{itemize}
 
 \end{document}
